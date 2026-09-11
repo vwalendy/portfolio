@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script>
+(function(){
+  try {
+    if(localStorage.getItem("theme") === "dark")
+      document.documentElement.setAttribute("data-theme", "dark");
+  } catch(e) {}
+})();
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Destinations — Valentin Walendy</title>
+
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<a href="index.html" class="topleft-nav">
+  <span class="site-name">Valentin Walendy</span>
+</a>
+
+<a href="about.html" class="topleft-nav topleft-nav--inline">
+  <span class="about-link">About me</span>
+</a>
+
+
+<div class="dest-scroll">
+
+  <!-- NEPAL -->
+  <a class="dest-panel" href="nepal.html">
+    <div class="photo-wrap">
+      <img src="photos/nepal1.jpg" alt="Nepal">
+    </div>
+    <span class="label">Nepal</span>
+  </a>
+
+
+  <!-- HAMPI -->
+  <a class="dest-panel" href="hampi.html">
+    <div class="photo-wrap">
+      <img src="photos/hampi1.jpg" alt="Hampi">
+    </div>
+    <span class="label">Hampi</span>
+  </a>
+
+
+  <!-- BANGALORE -->
+  <a class="dest-panel" href="bangalore.html">
+    <div class="photo-wrap">
+      <img src="photos/bangalore1.jpeg" alt="Bangalore">
+    </div>
+    <span class="label">Bangalore</span>
+  </a>
+
+
+  <!-- VARANASI -->
+  <a class="dest-panel" href="varanasi.html">
+    <div class="photo-wrap">
+      <img src="photos/varanasi26.jpg" alt="Varanasi">
+    </div>
+    <span class="label">Varanasi</span>
+  </a>
+
+
+  <!-- TAJ MAHAL -->
+  <a class="dest-panel" href="taj.html">
+    <div class="photo-wrap">
+      <img src="photos/taj1.jpg" alt="Taj Mahal">
+    </div>
+    <span class="label">Taj Mahal</span>
+  </a>
+
+</div>
+
+
+<script src="cursor.js"></script>
+<script src="theme.js"></script>
+<script src="scroll-effect.js"></script>
+<script src="step-scroll.js"></script>
+
+</body>
+</html>
