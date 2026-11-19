@@ -96,9 +96,10 @@
 /* ---------- Intro ---------- */
 
 .ab-intro {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: clamp(1.5rem, 5vh, 4rem) var(--gutter) clamp(5rem, 16vh, 10rem);
+  position: relative;
+  isolation: isolate;
+  min-height: calc(100vh - 6rem);
+  padding: clamp(1.5rem, 5vh, 4rem) max(var(--gutter), calc((100vw - 1400px) / 2 + var(--gutter))) clamp(5rem, 16vh, 10rem);
   display: grid;
   grid-template-columns: minmax(260px, 5fr) 7fr;
   gap: clamp(2rem, 6vw, 7rem);
@@ -123,6 +124,8 @@
 }
 .ab.is-ready .ab-portrait { clip-path: inset(0 0 0 0); }
 .ab.is-ready .ab-portrait img { transform: scale(1); }
+
+.ab-intro-text { text-shadow: 0 0 24px var(--bg), 0 0 8px var(--bg); }
 
 .ab-name {
   font-family: var(--display);
@@ -217,6 +220,19 @@
   transition: background-size 0.5s var(--ease-out);
 }
 .ab-links a:hover { background-size: 100% 1px, 100% 1px; }
+
+/* interactive particle field behind the intro (intro-bg.js) */
+.ab-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 2s ease 0.4s;
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent);
+          mask-image: linear-gradient(to bottom, #000 70%, transparent);
+}
+.ab.is-ready .ab-bg { opacity: 1; }
 
 /* ---------- Section head ---------- */
 
