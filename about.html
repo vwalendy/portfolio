@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
+<script>(function(){try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Valentin Walendy</title>
@@ -66,11 +67,6 @@
         </div>
       </dl>
 
-      <ul class="ab-links">
-        <li><a href="https://github.com/vwalendy" target="_blank" rel="noopener">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/valentin-walendy-a16ba2328/" target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href="mailto:valentin.walendy@epfl.ch">valentin.walendy@epfl.ch</a></li>
-      </ul>
     </div>
   </section>
 
@@ -122,12 +118,6 @@
     <div class="roam-after">
       <p class="roam-lede" data-split="words" data-reveal>An Android app that turns a photo of a monument into a short guide to its story, keeps it in a travel journal, and lets you share it with the friends you travel with.</p>
 
-      <ul class="roam-stats" data-reveal>
-        <li><span class="odo" data-value="7"></span><span class="roam-stat-l">people on the team</span></li>
-        <li><span class="odo" data-value="88"></span><span class="roam-stat-l">pull requests merged</span></li>
-        <li><span class="odo" data-value="40218" data-group></span><span class="roam-stat-l">lines of Kotlin</span></li>
-        <li><span class="odo" data-value="111"></span><span class="roam-stat-l">test files</span></li>
-      </ul>
 
       <dl class="roam-meta" data-reveal>
         <div>
@@ -181,7 +171,32 @@
   <span>Lausanne, 2026</span>
 </footer>
 
+<nav class="dock" aria-label="Quick links">
+  <a class="dock-i" href="index.html" data-tip="Home" aria-label="Home">
+    <svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg>
+  </a>
+  <a class="dock-i" href="destinations.html" data-tip="Photography" aria-label="Photography">
+    <svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5.5 9.2 3.5h5.6L16 5.5"/></svg>
+  </a>
+  <span class="dock-sep" aria-hidden="true"></span>
+  <a class="dock-i" href="https://github.com/vwalendy" target="_blank" rel="noopener" data-tip="GitHub" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" class="fill"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.7c-2.6.6-3.2-1.2-3.2-1.2-.4-1.1-1-1.4-1-1.4-.9-.6 0-.6 0-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.1-.2-4.3-1-4.3-4.6 0-1 .4-1.9 1-2.6-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.6 1a9 9 0 0 1 4.8 0c1.8-1.3 2.6-1 2.6-1 .5 1.3.2 2.3.1 2.5.6.7 1 1.6 1 2.6 0 3.7-2.2 4.4-4.3 4.6.3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5z"/></svg>
+  </a>
+  <a class="dock-i" href="https://www.linkedin.com/in/valentin-walendy-a16ba2328/" target="_blank" rel="noopener" data-tip="LinkedIn" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" class="fill"><path d="M5.2 8.8h3.1V19H5.2zM6.8 4a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.3 8.8h3v1.4c.4-.8 1.5-1.6 3-1.6 3.2 0 3.8 2.1 3.8 4.8V19H17v-5c0-1.2 0-2.7-1.7-2.7s-1.9 1.3-1.9 2.6V19h-3.1z"/></svg>
+  </a>
+  <a class="dock-i" href="mailto:valentin.walendy@epfl.ch" data-tip="valentin.walendy@epfl.ch" aria-label="Email valentin.walendy@epfl.ch">
+    <svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+  </a>
+  <span class="dock-sep" aria-hidden="true"></span>
+  <button class="dock-i dock-theme" type="button" data-tip="Dark mode" aria-label="Switch to dark mode">
+    <svg viewBox="0 0 24 24" class="i-moon"><path d="M19.5 14.2A8 8 0 0 1 9.8 4.5a8 8 0 1 0 9.7 9.7z"/></svg>
+    <svg viewBox="0 0 24 24" class="i-sun"><circle cx="12" cy="12" r="3.8"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M18.5 5.5l-1.7 1.7M7.2 16.8l-1.7 1.7"/></svg>
+  </button>
+</nav>
+
 <script src="cursor.js"></script>
+<script src="dock.js"></script>
 <script src="intro-bg.js"></script>
 <script src="about.js"></script>
 </body>

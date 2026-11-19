@@ -8,6 +8,34 @@
   font-display: swap;
 }
 
+/* Page palette: white and slate blue-grey by default, deep slate in dark mode */
+.ab {
+  --bg: #ffffff;
+  --bg-soft: #f3f5f8;
+  --ink: #1b2430;
+  --ink-soft: #5b6778;
+  --line: #e1e5eb;
+  --accent: #3e5c7d;
+  --mat: #f3f5f8;
+  --mat-border: #dfe4ea;
+  --frame-shadow: 0 30px 60px -36px rgba(27, 36, 48, 0.35);
+  --dock-bg: rgba(255, 255, 255, 0.78);
+  --dock-shadow: 0 10px 30px -12px rgba(27, 36, 48, 0.28), 0 1px 0 rgba(255, 255, 255, 0.6) inset;
+}
+[data-theme="dark"] .ab {
+  --bg: #0f1319;
+  --bg-soft: #161b22;
+  --ink: #e3e8ef;
+  --ink-soft: #8b96a6;
+  --line: #262e39;
+  --accent: #8fa9c7;
+  --mat: #161b22;
+  --mat-border: #29313c;
+  --frame-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.8);
+  --dock-bg: rgba(22, 27, 34, 0.78);
+  --dock-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.6), 0 1px 0 rgba(255, 255, 255, 0.05) inset;
+}
+
 .ab {
   --roam-bg: #194942;
   --roam-deep: #10302b;
@@ -112,7 +140,7 @@
   position: relative;
   padding: clamp(10px, 1.5vw, 22px);
   background: var(--mat);
-  box-shadow: 0 0 0 1px var(--mat-border), 0 40px 80px -40px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 0 1px var(--mat-border), var(--frame-shadow);
   opacity: 0;
   transform: translateY(24px) scale(0.98);
   transition: opacity 1s var(--ease-out), transform 1.4s var(--ease-out);
@@ -121,7 +149,7 @@
   content: "";
   position: absolute;
   inset: clamp(10px, 1.5vw, 22px);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+  box-shadow: inset 0 0 0 1px var(--mat-border);
   pointer-events: none;
 }
 .ab-frame figcaption {
@@ -685,3 +713,97 @@ html.is-loading { overflow: hidden; }
   .roam-stats .odo { font-size: 2.6rem; }
   .ab-intro { grid-template-columns: 42% 1fr; }
 }
+
+
+/* ---------- Dock: always-visible quick links ---------- */
+
+.dock {
+  position: fixed;
+  left: 50%;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.4rem 0.55rem;
+  border-radius: 999px;
+  background: var(--dock-bg);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+          backdrop-filter: blur(14px) saturate(1.4);
+  box-shadow: 0 0 0 1px var(--line), var(--dock-shadow);
+  color: var(--ink);
+  transform: translate(-50%, 160%);
+  transition: transform 0.9s var(--ease-out) 1.2s, background 0.4s ease, color 0.4s ease;
+}
+.ab.is-ready .dock { transform: translate(-50%, 0); }
+
+.dock-i {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border-radius: 50%;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.35s var(--ease-out), background 0.2s ease;
+}
+.dock-i:hover { background: var(--bg-soft); transform: translateY(-3px) scale(1.12); }
+.dock-i:active { transform: scale(0.94); }
+.dock-i svg {
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.dock-i svg.fill { fill: currentColor; stroke: none; }
+
+/* tooltip */
+.dock-i::after {
+  content: attr(data-tip);
+  position: absolute;
+  bottom: calc(100% + 0.6rem);
+  left: 50%;
+  transform: translate(-50%, 4px);
+  white-space: nowrap;
+  font-size: 0.75rem;
+  padding: 0.3rem 0.55rem;
+  border-radius: 6px;
+  background: var(--ink);
+  color: var(--bg);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.dock-i:hover::after,
+.dock-i:focus-visible::after { opacity: 1; transform: translate(-50%, 0); }
+
+.dock-sep { width: 1px; height: 1.4rem; background: var(--line); margin: 0 0.35rem; }
+
+.dock-theme .i-sun { display: none; }
+[data-theme="dark"] .dock-theme .i-sun { display: block; }
+[data-theme="dark"] .dock-theme .i-moon { display: none; }
+.dock-theme svg { transition: transform 0.6s var(--ease-out); }
+.dock-theme:hover svg { transform: rotate(-20deg); }
+
+/* keep page content clear of the dock */
+.ab .site-footer { padding-bottom: 6rem; }
+
+/* theme switch: circular wipe from the button (View Transitions) */
+::view-transition-old(root),
+::view-transition-new(root) { animation: none; mix-blend-mode: normal; }
+
+@media (max-width: 520px) {
+  .dock-i { width: 2.4rem; height: 2.4rem; }
+  .dock-i::after { display: none; }
+}
+
+/* the site's custom cursor would cover the dock icons: use the system pointer there */
+.ab .dock,
+.ab .dock * { cursor: pointer; }
+.dock:hover ~ .cursor { opacity: 0 !important; }
