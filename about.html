@@ -48,24 +48,62 @@
 
       <p class="ab-statement" data-split="words">Third-year computer science student at EPFL, working across software engineering, AI and computer systems. When I travel, I take photographs; most of this site is those.</p>
 
-      <dl class="ab-facts">
-        <div>
-          <dt>Since Sep 2026</dt>
-          <dd>Research intern, EPFL, Lausanne</dd>
-        </div>
-        <div>
-          <dt>Summer 2026</dt>
-          <dd>Agentic AI research intern, Infosys, Bengaluru</dd>
-        </div>
-        <div>
-          <dt>Early 2024</dt>
-          <dd>Research intern, Wolfram, Oxford</dd>
-        </div>
-        <div>
-          <dt>Studying</dt>
-          <dd>BSc Computer Science, EPFL</dd>
-        </div>
-      </dl>
+      <ul class="ab-xp" aria-label="Experience">
+        <li class="xp">
+          <button class="xp-head" type="button" aria-expanded="false" aria-controls="xp-1">
+            <span class="xp-when">Since Sep 2026</span>
+            <span class="xp-what"><strong>Research intern</strong> <span class="xp-org">EPFL, Lausanne</span></span>
+            <span class="xp-plus" aria-hidden="true"></span>
+          </button>
+          <div class="xp-body" id="xp-1"><div class="xp-inner">
+            <p>Research in Prof. Ola Svensson's group at EPFL.</p>
+          </div></div>
+        </li>
+        <li class="xp">
+          <button class="xp-head" type="button" aria-expanded="false" aria-controls="xp-2">
+            <span class="xp-when">Summer 2026</span>
+            <span class="xp-what"><strong>Agentic AI research intern</strong> <span class="xp-org">Infosys, Bengaluru</span></span>
+            <span class="xp-plus" aria-hidden="true"></span>
+          </button>
+          <div class="xp-body" id="xp-2"><div class="xp-inner">
+            <p>Built a multi-agent AI platform on Infosys Topaz Fabric that automates first-line IT operations for a simulated bank: job monitoring, incident diagnosis, failure prediction and remediation.</p>
+            <ul>
+              <li>Six specialised agents built with Google ADK and Gemini.</li>
+              <li>A self-hosted MCP server exposing 9 shared tools, replacing the first HTTP-proxy design.</li>
+              <li>Orchestration with automatic context handoff, and human approval before any remediation runs.</li>
+              <li>Guardrails: evidence checks, confidence thresholds, PII redaction and prompt-injection detection on untrusted logs.</li>
+            </ul>
+            <p class="xp-tags">Agentic AI, multi-agent systems, Gemini, MCP</p>
+          </div></div>
+        </li>
+        <li class="xp">
+          <button class="xp-head" type="button" aria-expanded="false" aria-controls="xp-3">
+            <span class="xp-when">Since Feb 2026</span>
+            <span class="xp-what"><strong>Project manager</strong> <span class="xp-org">Junior Entreprise EPFL</span></span>
+            <span class="xp-plus" aria-hidden="true"></span>
+          </button>
+          <div class="xp-body" id="xp-3"><div class="xp-inner">
+            <p>Student-led consulting association delivering projects for clients from startups to multinationals, with partners including Bain &amp; Company, BCG, Mistral AI and EWOR.</p>
+            <ul>
+              <li>Named best Junior Enterprise in Switzerland in 2025.</li>
+              <li>Record turnover of CHF 425,000 in 2025, across 58 client projects.</li>
+              <li>Also sales associate since May 2026.</li>
+            </ul>
+            <p class="xp-tags">Project management, negotiation, business development</p>
+          </div></div>
+        </li>
+        <li class="xp">
+          <button class="xp-head" type="button" aria-expanded="false" aria-controls="xp-4">
+            <span class="xp-when">Early 2024</span>
+            <span class="xp-what"><strong>Research intern</strong> <span class="xp-org">Wolfram, Oxford</span></span>
+            <span class="xp-plus" aria-hidden="true"></span>
+          </button>
+          <div class="xp-body" id="xp-4"><div class="xp-inner">
+            <p>Two-month full-time research internship, programming in Mathematica.</p>
+            <p class="xp-tags">Mathematica, programming</p>
+          </div></div>
+        </li>
+      </ul>
 
     </div>
   </section>

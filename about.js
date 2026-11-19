@@ -340,6 +340,16 @@
     tText.style.transform = "translateY(" + (-t * 6).toFixed(2) + "vh) scale(" + (1 - t * 0.06).toFixed(3) + ")";
   }
 
+  /* ---------- 8b. Experience rows open and close ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll(".xp-head"), function (b) {
+    b.addEventListener("click", function () {
+      var item = b.parentNode;
+      var open = !item.classList.contains("is-open");
+      item.classList.toggle("is-open", open);
+      b.setAttribute("aria-expanded", String(open));
+    });
+  });
+
   /* ---------- 9. Photo strip drifts sideways with scroll ---------- */
   var stripEl = document.querySelector(".ab-strip");
   var track = document.querySelector(".ab-strip-track");
