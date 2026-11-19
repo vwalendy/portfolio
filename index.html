@@ -1,52 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>(function(){try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Valentin Walendy — Photographie</title>
+<title>Valentin Walendy — Photography</title>
+<meta name="description" content="Photographs from India and Nepal by Valentin Walendy, computer science student at EPFL.">
+<link rel="preload" href="assets/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="photos/moi.jpg">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="about.css">
+<link rel="stylesheet" href="home.css">
 </head>
-<body>
+<body class="ab home">
 
-<section class="hero">
+<section class="hm">
+  <nav class="hm-nav">
+    <a href="about.html" class="hm-about">About me</a>
+  </nav>
 
-  <a href="about.html" class="topleft-nav">
-    <span class="about-link">About me</span>
-  </a>
-
-  <div class="hero-photo">
-    <img src="photos/moi.jpg" alt="Valentin Walendy">
+  <div class="hm-photo">
+    <img src="photos/moi.jpg" alt="A vegetable seller in his stall at a market in India" width="2400" height="1600">
   </div>
 
-  <div class="hero-content">
-    <span class="eyebrow hero-eyebrow">Photography — Selected Works</span>
-
-    <h1 class="hero-name">Valentin <em>Walendy</em></h1>
-
-    <div class="hero-rule"></div>
-
-    <a href="destinations.html" class="btn-chic">
-      Discover
-      <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1 6H11M11 6L6.5 1.5M11 6L6.5 10.5" stroke="currentColor" stroke-width="1"/>
-      </svg>
+  <div class="hm-content">
+    <p class="hm-kicker">Photography, India and Nepal, 2026</p>
+    <h1 class="hm-name"><span data-split="chars">Valentin</span> <span data-split="chars">Walendy</span></h1>
+    <span class="hm-rule" aria-hidden="true"></span>
+    <a href="destinations.html" class="hm-cta">
+      <span>Discover</span>
+      <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M1 6H11M11 6L6.5 1.5M11 6L6.5 10.5"/></svg>
     </a>
-
-    <span class="hero-foot">
-      Nepal - Hampi - Bangalore - Varanasi - Taj Mahal
-    </span>
-
-    <span class="hero-copyright">
-      ©All photographs by Valentin Walendy
-    </span>
-
+    <ul class="hm-places">
+      <li><a href="nepal.html">Nepal</a></li>
+      <li><a href="hampi.html">Hampi</a></li>
+      <li><a href="bangalore.html">Bangalore</a></li>
+      <li><a href="varanasi.html">Varanasi</a></li>
+      <li><a href="taj.html">Taj Mahal</a></li>
+    </ul>
+    <p class="hm-copy">All photographs by Valentin Walendy</p>
   </div>
-
 </section>
 
-<script src="cursor.js"></script>
-<script src="theme.js"></script>
+<nav class="dock" aria-label="Quick links">
+  <a class="dock-i" href="destinations.html" data-tip="Destinations" aria-label="Destinations">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5z"/></svg>
+  </a>
+  <a class="dock-i" href="about.html" data-tip="About" aria-label="About">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>
+  </a>
+  <span class="dock-sep" aria-hidden="true"></span>
+  <a class="dock-i" href="https://github.com/vwalendy" target="_blank" rel="noopener" data-tip="GitHub" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" class="fill"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.7c-2.6.6-3.2-1.2-3.2-1.2-.4-1.1-1-1.4-1-1.4-.9-.6 0-.6 0-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.1-.2-4.3-1-4.3-4.6 0-1 .4-1.9 1-2.6-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.6 1a9 9 0 0 1 4.8 0c1.8-1.3 2.6-1 2.6-1 .5 1.3.2 2.3.1 2.5.6.7 1 1.6 1 2.6 0 3.7-2.2 4.4-4.3 4.6.3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5z"/></svg>
+  </a>
+  <a class="dock-i" href="https://www.linkedin.com/in/valentin-walendy-a16ba2328/" target="_blank" rel="noopener" data-tip="LinkedIn" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" class="fill"><path d="M5.2 8.8h3.1V19H5.2zM6.8 4a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.3 8.8h3v1.4c.4-.8 1.5-1.6 3-1.6 3.2 0 3.8 2.1 3.8 4.8V19H17v-5c0-1.2 0-2.7-1.7-2.7s-1.9 1.3-1.9 2.6V19h-3.1z"/></svg>
+  </a>
+  <a class="dock-i" href="mailto:valentin.walendy@epfl.ch" data-tip="valentin.walendy@epfl.ch" aria-label="Email valentin.walendy@epfl.ch">
+    <svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+  </a>
+</nav>
 
+<script src="site.js"></script>
+<script src="cursor.js"></script>
+<script src="home.js"></script>
 </body>
 </html>

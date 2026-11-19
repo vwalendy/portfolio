@@ -1,0 +1,170 @@
+/* Home: the long photograph across the top, the name centred underneath — now in white and navy. */
+
+.hm {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.hm-nav {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 3;
+  padding: 2rem var(--gutter);
+}
+.hm-about {
+  color: #fff;
+  font-size: 0.95rem;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  transition: border-color 0.2s ease;
+  opacity: 0;
+  transition: opacity 0.8s ease 1.2s, border-color 0.2s ease;
+}
+.ab.is-ready .hm-about { opacity: 1; }
+.hm-about:hover { border-color: #fff; }
+
+/* the long photograph */
+.hm-photo {
+  position: relative;
+  height: 50vh;
+  min-height: 280px;
+  overflow: hidden;
+  background: var(--navy);
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1.4s var(--ease-in-out);
+}
+.ab.is-ready .hm-photo { clip-path: inset(0 0 0 0); }
+.hm-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transform: scale(1.12);
+  transition: transform 2.4s var(--ease-out);
+  will-change: transform;
+}
+.ab.is-ready .hm-photo img { transform: scale(1.02); }
+.hm-photo::after {                 /* a light veil at the top keeps "About me" readable */
+  content: "";
+  position: absolute;
+  inset: 0 0 60% 0;
+  background: linear-gradient(rgba(11, 31, 63, 0.35), rgba(11, 31, 63, 0));
+  pointer-events: none;
+}
+
+.hm-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: clamp(1.5rem, 4vh, 3rem) var(--gutter) 6.5rem;
+}
+
+.hm-kicker {
+  margin: 0 0 1rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+  opacity: 0;
+  transition: opacity 1s ease 0.9s;
+}
+.ab.is-ready .hm-kicker { opacity: 1; }
+
+.hm-name {
+  font-family: var(--display);
+  font-weight: 300;
+  --wght: 300;
+  font-size: clamp(3rem, min(8vw, 11vh), 7rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+.hm-name > span:last-child { --d: 220ms; }
+.hm-name .c { transition-delay: calc(var(--i, 0) * 40ms + var(--d, 0ms) + 500ms); }
+
+.hm-rule {
+  width: 56px;
+  height: 1px;
+  background: var(--line);
+  margin: clamp(1rem, 3vh, 2rem) 0;
+  transform: scaleX(0);
+  transition: transform 1s var(--ease-in-out) 1.3s;
+}
+.ab.is-ready .hm-rule { transform: scaleX(1); }
+
+.hm-cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.95rem;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.9s var(--ease-out) 1.4s, transform 0.9s var(--ease-out) 1.4s, background 0.3s ease;
+}
+.ab.is-ready .hm-cta { opacity: 1; transform: none; }
+.hm-cta:hover { background: var(--accent); }
+.hm-cta svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.2; transition: transform 0.4s var(--ease-out); }
+.hm-cta:hover svg { transform: translateX(4px); }
+.hm-cta:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.hm-places {
+  list-style: none;
+  margin: clamp(1.2rem, 3vh, 2.2rem) 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 1.6rem;
+  font-size: 0.9rem;
+}
+.hm-places li {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.7s ease, transform 0.7s var(--ease-out);
+}
+.hm-places li:nth-child(1) { transition-delay: 1.6s; }
+.hm-places li:nth-child(2) { transition-delay: 1.66s; }
+.hm-places li:nth-child(3) { transition-delay: 1.72s; }
+.hm-places li:nth-child(4) { transition-delay: 1.78s; }
+.hm-places li:nth-child(5) { transition-delay: 1.84s; }
+.ab.is-ready .hm-places li { opacity: 1; transform: none; }
+.hm-places a {
+  color: var(--ink-soft);
+  background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+  padding-bottom: 2px;
+  transition: color 0.2s ease, background-size 0.4s var(--ease-out);
+}
+.hm-places a:hover { color: var(--ink); background-size: 100% 1px; }
+
+.hm-copy {
+  margin: 1.4rem 0 0;
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  opacity: 0;
+  transition: opacity 1s ease 2s;
+}
+.ab.is-ready .hm-copy { opacity: 0.8; }
+
+@media (max-width: 700px) {
+  .hm-photo { height: 46vh; }
+  .hm-nav { padding: 1.4rem var(--gutter); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-photo { clip-path: none; }
+  .hm-photo img { transform: none; }
+  .hm-rule { transform: none; }
+  .hm-about, .hm-kicker, .hm-cta, .hm-places li, .hm-copy { opacity: 1; transform: none; }
+}
+
+@media (max-height: 780px) and (min-width: 701px) {
+  .hm-photo { height: 44vh; }
+}

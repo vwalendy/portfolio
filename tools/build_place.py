@@ -92,6 +92,7 @@ def build(spec):
 </div>
 
 {DOCK}
+<script src="site.js"></script>
 <script src="cursor.js"></script>
 <script src="place.js"></script>
 </body>
