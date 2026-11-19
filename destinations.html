@@ -1,88 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<script>
-(function(){
-  try {
-    if(localStorage.getItem("theme") === "dark")
-      document.documentElement.setAttribute("data-theme", "dark");
-  } catch(e) {}
-})();
-</script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Destinations — Valentin Walendy</title>
-
+<meta name="description" content="Photographs from India and Nepal, 2026.">
+<link rel="preload" href="assets/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="about.css">
+<link rel="stylesheet" href="dest.css">
 </head>
+<body class="ab dest">
 
-<body>
+<nav class="nav ab-nav">
+  <div class="nav-left">
+    <a href="index.html" class="nav-logo">Valentin Walendy</a>
+    <a href="about.html" class="about-link">About</a>
+  </div>
+  <div class="nav-links">
+    <a href="destinations.html" class="active">Destinations</a>
+  </div>
+</nav>
 
-<a href="index.html" class="topleft-nav">
-  <span class="site-name">Valentin Walendy</span>
-</a>
+<main class="dest-main">
 
-<a href="about.html" class="topleft-nav topleft-nav--inline">
-  <span class="about-link">About me</span>
-</a>
+  <section class="dest-list-wrap" aria-labelledby="dest-title">
+    <h1 id="dest-title" class="dest-title" data-split="chars">Destinations</h1>
+    <p class="dest-intro">Two months in India for an internship in 2026, and the trips I took from there.</p>
 
+    <ol class="dest-list">
+      <li><a class="dest-item" href="bangalore.html" data-key="bangalore">
+        <span class="dest-name" data-split="chars">Bangalore</span>
+        <span class="dest-meta">India, where I lived. 20 photographs</span>
+      </a></li>
+      <li><a class="dest-item" href="hampi.html" data-key="hampi">
+        <span class="dest-name" data-split="chars">Hampi</span>
+        <span class="dest-meta">Karnataka, India. 11 photographs</span>
+      </a></li>
+      <li><a class="dest-item" href="varanasi.html" data-key="varanasi">
+        <span class="dest-name" data-split="chars">Varanasi</span>
+        <span class="dest-meta">Uttar Pradesh, India. 20 photographs</span>
+      </a></li>
+      <li><a class="dest-item" href="taj.html" data-key="taj">
+        <span class="dest-name" data-split="chars">Taj Mahal</span>
+        <span class="dest-meta">Agra, India. 19 photographs</span>
+      </a></li>
+      <li><a class="dest-item" href="nepal.html" data-key="nepal">
+        <span class="dest-name" data-split="chars">Nepal</span>
+        <span class="dest-meta">Kathmandu and the Himalaya. 28 photographs</span>
+      </a></li>
+    </ol>
+  </section>
 
-<div class="dest-scroll">
-
-  <!-- NEPAL -->
-  <a class="dest-panel" href="nepal.html">
-    <div class="photo-wrap">
-      <img src="photos/nepal1.jpg" alt="Nepal">
+  <section class="dest-stage" aria-hidden="true">
+    <div class="dest-globe">
+      <canvas></canvas>
+      <span class="dest-pin-label"></span>
     </div>
-    <span class="label">Nepal</span>
-  </a>
-
-
-  <!-- HAMPI -->
-  <a class="dest-panel" href="hampi.html">
-    <div class="photo-wrap">
-      <img src="photos/hampi1.jpg" alt="Hampi">
+    <div class="dest-stacks">
+      <div class="stack" data-key="bangalore">
+        <img src="assets/dest/bangalore-1.jpg" alt="" loading="lazy" width="900" height="502">
+        <img src="assets/dest/bangalore-2.jpg" alt="" loading="lazy" width="900" height="600">
+        <img src="assets/dest/bangalore-3.jpg" alt="" loading="lazy" width="900" height="590">
+      </div>
+      <div class="stack" data-key="hampi">
+        <img src="assets/dest/hampi-1.jpg" alt="" loading="lazy" width="900" height="600">
+        <img src="assets/dest/hampi-2.jpg" alt="" loading="lazy" width="600" height="900" class="tall">
+        <img src="assets/dest/hampi-3.jpg" alt="" loading="lazy" width="900" height="600">
+      </div>
+      <div class="stack" data-key="varanasi">
+        <img src="assets/dest/varanasi-1.jpg" alt="" loading="lazy" width="900" height="600">
+        <img src="assets/dest/varanasi-2.jpg" alt="" loading="lazy" width="900" height="600">
+        <img src="assets/dest/varanasi-3.jpg" alt="" loading="lazy" width="900" height="600">
+      </div>
+      <div class="stack" data-key="taj">
+        <img src="assets/dest/taj-1.jpg" alt="" loading="lazy" width="900" height="600">
+        <img src="assets/dest/taj-2.jpg" alt="" loading="lazy" width="900" height="600">
+        <img src="assets/dest/taj-3.jpg" alt="" loading="lazy" width="900" height="600">
+      </div>
+      <div class="stack" data-key="nepal">
+        <img src="assets/dest/nepal-1.jpg" alt="" loading="lazy" width="900" height="600">
+        <img src="assets/dest/nepal-2.jpg" alt="" loading="lazy" width="600" height="900" class="tall">
+        <img src="assets/dest/nepal-3.jpg" alt="" loading="lazy" width="900" height="600">
+      </div>
     </div>
-    <span class="label">Hampi</span>
+  </section>
+
+</main>
+
+<nav class="dock" aria-label="Quick links">
+  <a class="dock-i" href="index.html" data-tip="Home" aria-label="Home">
+    <svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg>
   </a>
-
-
-  <!-- BANGALORE -->
-  <a class="dest-panel" href="bangalore.html">
-    <div class="photo-wrap">
-      <img src="photos/bangalore1.jpeg" alt="Bangalore">
-    </div>
-    <span class="label">Bangalore</span>
+  <a class="dock-i" href="about.html" data-tip="About" aria-label="About">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"/></svg>
   </a>
-
-
-  <!-- VARANASI -->
-  <a class="dest-panel" href="varanasi.html">
-    <div class="photo-wrap">
-      <img src="photos/varanasi26.jpg" alt="Varanasi">
-    </div>
-    <span class="label">Varanasi</span>
+  <span class="dock-sep" aria-hidden="true"></span>
+  <a class="dock-i" href="https://github.com/vwalendy" target="_blank" rel="noopener" data-tip="GitHub" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" class="fill"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.7c-2.6.6-3.2-1.2-3.2-1.2-.4-1.1-1-1.4-1-1.4-.9-.6 0-.6 0-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.1-.2-4.3-1-4.3-4.6 0-1 .4-1.9 1-2.6-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.6 1a9 9 0 0 1 4.8 0c1.8-1.3 2.6-1 2.6-1 .5 1.3.2 2.3.1 2.5.6.7 1 1.6 1 2.6 0 3.7-2.2 4.4-4.3 4.6.3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5z"/></svg>
   </a>
-
-
-  <!-- TAJ MAHAL -->
-  <a class="dest-panel" href="taj.html">
-    <div class="photo-wrap">
-      <img src="photos/taj1.jpg" alt="Taj Mahal">
-    </div>
-    <span class="label">Taj Mahal</span>
+  <a class="dock-i" href="https://www.linkedin.com/in/valentin-walendy-a16ba2328/" target="_blank" rel="noopener" data-tip="LinkedIn" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" class="fill"><path d="M5.2 8.8h3.1V19H5.2zM6.8 4a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.3 8.8h3v1.4c.4-.8 1.5-1.6 3-1.6 3.2 0 3.8 2.1 3.8 4.8V19H17v-5c0-1.2 0-2.7-1.7-2.7s-1.9 1.3-1.9 2.6V19h-3.1z"/></svg>
   </a>
-
-</div>
-
+  <a class="dock-i" href="mailto:valentin.walendy@epfl.ch" data-tip="valentin.walendy@epfl.ch" aria-label="Email valentin.walendy@epfl.ch">
+    <svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+  </a>
+</nav>
 
 <script src="cursor.js"></script>
-<script src="theme.js"></script>
-<script src="scroll-effect.js"></script>
-<script src="step-scroll.js"></script>
-
+<script src="assets/geo/d3-array.min.js"></script>
+<script src="assets/geo/d3-geo.min.js"></script>
+<script src="assets/geo/topojson-client.min.js"></script>
+<script src="dest.js"></script>
 </body>
 </html>

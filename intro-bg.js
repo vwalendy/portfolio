@@ -22,8 +22,8 @@
   var INK = [], SAND = [], dark = false;
   function palette() {
     dark = document.documentElement.getAttribute("data-theme") === "dark";
-    var ink = dark ? [222, 230, 240] : [38, 52, 72];
-    var sand = dark ? [143, 169, 199] : [92, 116, 146];
+    var ink = dark ? [222, 230, 240] : [11, 31, 63];
+    var sand = dark ? [143, 169, 199] : [29, 61, 115];
     for (var k = 0; k < 3; k++) { INK[k] = ink[k]; SAND[k] = sand[k]; }
   }
   palette();
@@ -83,7 +83,7 @@
     ctx.globalCompositeOperation = "source-over";
     // soft core glow
     var core = ctx.createRadialGradient(cx + tilt.x * 40, cy + tilt.y * 28, 0, cx + tilt.x * 40, cy + tilt.y * 28, scale * 0.45);
-    core.addColorStop(0, dark ? "rgba(143,169,199,0.16)" : "rgba(62,92,125,0.10)");
+    core.addColorStop(0, dark ? "rgba(143,169,199,0.16)" : "rgba(29,61,115,0.10)");
     core.addColorStop(0.35, dark ? "rgba(38,159,149,0.05)" : "rgba(38,159,149,0.04)");
     core.addColorStop(1, "rgba(0,0,0,0)");
     ctx.fillStyle = core;
