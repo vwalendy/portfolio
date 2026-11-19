@@ -34,29 +34,141 @@
   }
   Array.prototype.forEach.call(document.querySelectorAll("[data-split]"), split);
 
-  /* ---------- 2. Page-load sequence ---------- */
-  var portrait = document.querySelector(".ab-portrait img");
-  var fontsReady = document.fonts && document.fonts.load
+  /* ---------- 2. Odometer: each digit is a reel of 0–9 that rolls into place ---------- */
+  function Odo(el, digits) {
+    this.el = el;
+    this.group = el.hasAttribute("data-group");
+    this.reels = [];
+    this.build(digits);
+  }
+  Odo.prototype.build = function (n) {
+    this.el.textContent = "";
+    this.reels = [];
+    for (var i = 0; i < n; i++) {
+      if (this.group && i > 0 && (n - i) % 3 === 0) {
+        var sep = document.createElement("span"); sep.className = "odo-sep"; this.el.appendChild(sep);
+      }
+      var d = document.createElement("span"); d.className = "odo-d";
+      var reel = document.createElement("span"); reel.className = "odo-reel";
+      for (var k = 0; k < 10; k++) { var s = document.createElement("span"); s.textContent = k; reel.appendChild(s); }
+      d.appendChild(reel); this.el.appendChild(d);
+      this.reels.push({ box: d, reel: reel });
+    }
+  };
+  Odo.prototype.set = function (value, opts) {
+    opts = opts || {};
+    var str = String(Math.max(0, Math.round(value)));
+    var n = this.reels.length;
+    while (str.length < n) str = " " + str;
+    for (var i = 0; i < n; i++) {
+      var ch = str[i], r = this.reels[i];
+      var blank = ch === " " && i < n - 1;
+      r.box.classList.toggle("is-blank", blank);
+      var digit = blank ? 0 : Number(ch);
+      if (opts.stagger) {
+        // left-most reels finish last, like a mechanical counter
+        r.reel.style.setProperty("--dur", (1.2 + (n - i) * 0.18) + "s");
+        r.reel.style.setProperty("--dl", (opts.delay || 0) + "s");
+      }
+      r.reel.style.transform = "translateY(" + (-digit * 10) + "%)";
+    }
+  };
+  // For the stats: reset to zero, then roll every reel up to its digit.
+  Odo.prototype.roll = function (value, delay) {
+    var self = this;
+    var str = String(value);
+    this.build(str.length);
+    this.reels.forEach(function (r) { r.reel.style.transition = "none"; r.reel.style.transform = "translateY(0)"; });
+    void this.el.offsetWidth;
+    this.reels.forEach(function (r) { r.reel.style.transition = ""; });
+    self.set(value, { stagger: true, delay: delay || 0 });
+  };
+
+  /* ---------- 3. Loader: real progress of the assets the first screen needs ---------- */
+  var root = document.documentElement;
+  var loader = document.querySelector(".ab-loader");
+  var countOdo = new Odo(loader.querySelector(".odo"), 3);
+  countOdo.set(0);
+
+  var seen = false;
+  try { seen = sessionStorage.getItem("ab-loaded") === "1"; } catch (e) {}
+
+  var critical = [
+    "photos/portrait.jpg", "assets/roam/icon.png",
+    "assets/roam/learn.webp", "assets/roam/snap.webp", "assets/roam/explore.webp",
+    "assets/roam/identify.webp", "assets/roam/collection.webp", "assets/roam/wishlist.webp"
+  ];
+  var total = critical.length + 1, done = 0;
+  function tick() { done++; }
+  critical.forEach(function (src) {
+    var im = new Image();
+    im.onload = im.onerror = tick;
+    im.src = src;
+  });
+  (document.fonts && document.fonts.load
     ? document.fonts.load("300 1em 'Fraunces Var'").catch(function () {})
-    : Promise.resolve();
-  var imgReady = new Promise(function (resolve) {
-    if (!portrait || portrait.complete) return resolve();
-    portrait.addEventListener("load", resolve, { once: true });
-    portrait.addEventListener("error", resolve, { once: true });
-  });
-  var timeout = new Promise(function (r) { setTimeout(r, 1500); });
+    : Promise.resolve()).then(tick);
 
-  Promise.race([Promise.all([fontsReady, imgReady]), timeout]).then(function () {
-    requestAnimationFrame(function () {
-      body.classList.add("is-ready");
-      Array.prototype.forEach.call(
-        document.querySelectorAll(".ab-intro [data-split]"),
-        function (el) { el.classList.add("is-in"); }
-      );
-    });
-  });
+  function startIntro() {
+    body.classList.add("is-ready");
+    Array.prototype.forEach.call(
+      document.querySelectorAll(".ab-intro [data-split]"),
+      function (el) { el.classList.add("is-in"); }
+    );
+  }
 
-  /* ---------- 3. Reveal on scroll ---------- */
+  if (seen || reduce) {
+    loader.classList.add("is-gone");
+    requestAnimationFrame(startIntro);
+  } else {
+    root.classList.add("is-loading");
+    var shown = 0, t0 = performance.now(), MIN = 1400, MAX = 6000;
+    (function step(now) {
+      var elapsed = now - t0;
+      var real = done / total;
+      var timeCap = Math.min(1, elapsed / MIN);           // never faster than MIN
+      var goal = Math.min(real, timeCap) * 100;
+      if (elapsed > MAX) goal = 100;                      // never stuck
+      shown += (goal - shown) * 0.12;
+      if (goal === 100 && shown > 99.4) shown = 100;
+      countOdo.set(Math.floor(shown));
+      loader.style.setProperty("--lp", shown.toFixed(1));
+      loader.style.setProperty("--lw", (100 + shown * 3.4).toFixed(0));
+      loader.style.setProperty("--lpx", (shown / 100).toFixed(3));
+      if (shown < 100) return requestAnimationFrame(step);
+      setTimeout(function () {
+        loader.classList.add("is-done");
+        root.classList.remove("is-loading");
+        try { sessionStorage.setItem("ab-loaded", "1"); } catch (e) {}
+        setTimeout(startIntro, 350);
+        setTimeout(function () { loader.classList.add("is-gone"); }, 1200);
+      }, 280);
+    })(t0);
+  }
+
+  /* ---------- 4. Stats: numbers roll in when they appear ---------- */
+  var stats = Array.prototype.slice.call(document.querySelectorAll(".roam-stats .odo"));
+  var statOdos = stats.map(function (el) {
+    var o = new Odo(el, String(el.getAttribute("data-value")).length);
+    o.set(0);
+    return o;
+  });
+  var statsList = document.querySelector(".roam-stats");
+  if (statsList && "IntersectionObserver" in window) {
+    var so = new IntersectionObserver(function (es) {
+      if (!es[0].isIntersecting) return;
+      statOdos.forEach(function (o, i) {
+        if (reduce) o.set(Number(o.el.getAttribute("data-value")));
+        else o.roll(Number(o.el.getAttribute("data-value")), 0.15 + i * 0.12);
+      });
+      so.disconnect();
+    }, { rootMargin: "0px 0px -15% 0px" });
+    so.observe(statsList);
+  } else {
+    statOdos.forEach(function (o) { o.set(Number(o.el.getAttribute("data-value"))); });
+  }
+
+  /* ---------- 6. Reveal on scroll ---------- */
   var revealables = document.querySelectorAll("[data-reveal]");
   if ("IntersectionObserver" in window) {
     var ro = new IntersectionObserver(function (entries) {
@@ -69,7 +181,7 @@
     Array.prototype.forEach.call(revealables, function (el) { el.classList.add("is-in"); });
   }
 
-  /* ---------- 4. Roam montage (scroll-linked) ---------- */
+  /* ---------- 7. Roam montage (scroll-linked) ---------- */
   var roam = document.querySelector(".roam");
   var pin = document.querySelector(".roam-pin");
   var word = document.querySelector(".roam-word");
@@ -168,6 +280,7 @@
     target = progress();
     if (!running) { running = true; requestAnimationFrame(loop); }
     strip();
+    transition();
   }
 
   // Reveal the giant word when the section arrives.
@@ -180,7 +293,54 @@
     wordText.classList.add("is-in");
   }
 
-  /* ---------- 5. Photo strip drifts sideways with scroll ---------- */
+  /* ---------- 8. Transition: the Roam icon opens into the Roam section ---------- */
+  var trans = document.querySelector(".ab-trans");
+  var tPanel = document.querySelector(".ab-trans-panel");
+  var tIcon = document.querySelector(".ab-trans-icon");
+  var tText = document.querySelector(".ab-trans-text");
+  var FROM = [38, 159, 149], TO = [25, 73, 66];   // icon teal → Roam section green
+
+  if (trans && "IntersectionObserver" in window) {
+    var to = new IntersectionObserver(function (es) {
+      if (es[0].isIntersecting) { trans.classList.add("is-in"); to.disconnect(); }
+    }, { threshold: 0.2 });
+    to.observe(trans);
+  } else if (trans) { trans.classList.add("is-in"); }
+
+  function transition() {
+    if (!trans) return;
+    var r = trans.getBoundingClientRect();
+    if (r.bottom < 0 || r.top > vh) return;
+    var p = clamp(-r.top / (r.height - vh), 0, 1);
+    var t = reduce ? (p > 0.5 ? 1 : 0) : easeInOut(clamp((p - 0.12) / 0.78, 0, 1));
+
+    var s0 = Math.min(vw * 0.11, vh * 0.14, 120);
+    var cxp = vw / 2, cyp = vh * 0.7;
+    // box grows from the icon to the full viewport
+    var top = (cyp - s0 / 2) * (1 - t);
+    var bottom = (vh - cyp - s0 / 2) * (1 - t);
+    var side = (vw - s0) / 2 * (1 - t);
+    var rad = s0 * 0.22 * (1 - t);
+    tPanel.style.clipPath = "inset(" + top.toFixed(1) + "px " + side.toFixed(1) + "px " + bottom.toFixed(1) + "px " + side.toFixed(1) + "px round " + rad.toFixed(1) + "px)";
+    var col = FROM.map(function (c, i) { return Math.round(c + (TO[i] - c) * Math.min(1, t * 1.6)); });
+    tPanel.style.background = "rgb(" + col.join(",") + ")";
+
+    // the icon grows with the box and dissolves into it
+    var boxW = vw - side * 2, boxH = vh - top - bottom;
+    var k = Math.min(boxW, boxH) / s0;
+    roam.style.setProperty("--is", s0 + "px");
+    trans.style.setProperty("--is", s0 + "px");
+    tIcon.style.transform = "translate(-50%, " + (cyp - s0 / 2).toFixed(1) + "px) translateY(" + ((top - (cyp - s0 / 2)) + (boxH - s0) / 2).toFixed(1) + "px) scale(" + Math.min(k, 6).toFixed(3) + ")";
+    if (trans.classList.contains("is-in") && p > 0.01) {
+      tIcon.classList.add("is-driven");
+      tIcon.style.opacity = String(clamp(1 - t * 4, 0, 1));
+    }
+
+    // heading drifts up slightly as the panel swallows it
+    tText.style.transform = "translateY(" + (-t * 6).toFixed(2) + "vh) scale(" + (1 - t * 0.06).toFixed(3) + ")";
+  }
+
+  /* ---------- 9. Photo strip drifts sideways with scroll ---------- */
   var stripEl = document.querySelector(".ab-strip");
   var track = document.querySelector(".ab-strip-track");
   function strip() {

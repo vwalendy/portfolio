@@ -12,6 +12,12 @@
 </head>
 <body class="ab">
 
+<div class="ab-loader" aria-hidden="true">
+  <span class="ab-loader-name">Valentin Walendy</span>
+  <span class="ab-loader-count"><span class="odo" data-digits="3"></span><span class="ab-loader-pct">%</span></span>
+  <span class="ab-loader-bar"><span></span></span>
+</div>
+
 <nav class="nav ab-nav">
   <div class="nav-left">
     <a href="index.html" class="nav-logo">Valentin Walendy</a>
@@ -26,8 +32,11 @@
 
   <!-- ============ Intro ============ -->
   <section class="ab-intro" aria-labelledby="ab-name">
-    <figure class="ab-portrait">
-      <img src="photos/portrait.jpg" alt="Portrait of Valentin Walendy" width="880" height="1100">
+    <figure class="ab-frame">
+      <div class="ab-portrait">
+        <img src="photos/portrait.jpg" alt="Portrait of Valentin Walendy" width="880" height="1100">
+      </div>
+      <figcaption>Lausanne, 2026</figcaption>
     </figure>
 
     <div class="ab-intro-text">
@@ -36,20 +45,24 @@
         <span class="ab-name-line" data-split="chars">Walendy</span>
       </h1>
 
-      <p class="ab-statement" data-split="words">I study computer science at EPFL and like problems where data, models and algorithms meet. When I travel, I take photographs; most of this site is those.</p>
+      <p class="ab-statement" data-split="words">Third-year computer science student at EPFL, working across software engineering, AI and computer systems. When I travel, I take photographs; most of this site is those.</p>
 
       <dl class="ab-facts">
         <div>
-          <dt>Studying</dt>
-          <dd>BSc Computer Science, EPFL, Lausanne</dd>
+          <dt>Since Sep 2026</dt>
+          <dd>Research intern, EPFL, Lausanne</dd>
         </div>
         <div>
           <dt>Summer 2026</dt>
-          <dd>Data &amp; AI intern, Infosys, Bangalore</dd>
+          <dd>Agentic AI research intern, Infosys, Bengaluru</dd>
         </div>
         <div>
-          <dt>Interested in</dt>
-          <dd>Data analytics, computational modelling, algorithmic problem-solving</dd>
+          <dt>Early 2024</dt>
+          <dd>Research intern, Wolfram, Oxford</dd>
+        </div>
+        <div>
+          <dt>Studying</dt>
+          <dd>BSc Computer Science, EPFL</dd>
         </div>
       </dl>
 
@@ -62,8 +75,15 @@
   </section>
 
   <!-- ============ Work ============ -->
-  <section class="ab-section-head">
-    <h2 class="ab-h2" data-split="chars" data-reveal>Selected work</h2>
+  <section class="ab-trans" aria-labelledby="ab-work-title">
+    <div class="ab-trans-stage">
+      <div class="ab-trans-panel" aria-hidden="true"></div>
+      <img class="ab-trans-icon" src="assets/roam/icon.png" alt="" aria-hidden="true">
+      <div class="ab-trans-text">
+        <h2 id="ab-work-title" class="ab-h2 ab-trans-title" data-split="chars">Selected work</h2>
+        <p class="ab-trans-sub">Software I've built, starting with an app for travellers.</p>
+      </div>
+    </div>
   </section>
 
   <section class="roam" aria-labelledby="roam-title">
@@ -101,6 +121,13 @@
 
     <div class="roam-after">
       <p class="roam-lede" data-split="words" data-reveal>An Android app that turns a photo of a monument into a short guide to its story, keeps it in a travel journal, and lets you share it with the friends you travel with.</p>
+
+      <ul class="roam-stats" data-reveal>
+        <li><span class="odo" data-value="7"></span><span class="roam-stat-l">people on the team</span></li>
+        <li><span class="odo" data-value="88"></span><span class="roam-stat-l">pull requests merged</span></li>
+        <li><span class="odo" data-value="40218" data-group></span><span class="roam-stat-l">lines of Kotlin</span></li>
+        <li><span class="odo" data-value="111"></span><span class="roam-stat-l">test files</span></li>
+      </ul>
 
       <dl class="roam-meta" data-reveal>
         <div>
