@@ -5,13 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Valentin Walendy</title>
 <meta name="description" content="Valentin Walendy, computer science student at EPFL. Software projects and travel photography.">
+<link rel="preload" href="assets/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="photos/portrait.jpg">
 <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="about.css">
-<link rel="preload" as="image" href="photos/portrait.jpg">
 </head>
 <body class="ab">
 
-<nav class="nav">
+<nav class="nav ab-nav">
   <div class="nav-left">
     <a href="index.html" class="nav-logo">Valentin Walendy</a>
     <a href="about.html" class="about-link active">About</a>
@@ -23,7 +24,7 @@
 
 <main>
 
-  <!-- Intro -->
+  <!-- ============ Intro ============ -->
   <section class="ab-intro" aria-labelledby="ab-name">
     <figure class="ab-portrait">
       <img src="photos/portrait.jpg" alt="Portrait of Valentin Walendy" width="880" height="1100">
@@ -31,13 +32,13 @@
 
     <div class="ab-intro-text">
       <h1 id="ab-name" class="ab-name">
-        <span class="ab-line"><span>Valentin</span></span>
-        <span class="ab-line"><span>Walendy</span></span>
+        <span class="ab-name-line" data-split="chars">Valentin</span>
+        <span class="ab-name-line" data-split="chars">Walendy</span>
       </h1>
 
-      <p class="ab-statement ab-in">I study computer science at EPFL and like problems where data, models and algorithms meet. When I travel, I take photographs; most of this site is those.</p>
+      <p class="ab-statement" data-split="words">I study computer science at EPFL and like problems where data, models and algorithms meet. When I travel, I take photographs; most of this site is those.</p>
 
-      <dl class="ab-facts ab-in">
+      <dl class="ab-facts">
         <div>
           <dt>Studying</dt>
           <dd>BSc Computer Science, EPFL, Lausanne</dd>
@@ -52,7 +53,7 @@
         </div>
       </dl>
 
-      <ul class="ab-links ab-in">
+      <ul class="ab-links">
         <li><a href="https://github.com/vwalendy" target="_blank" rel="noopener">GitHub</a></li>
         <li><a href="https://www.linkedin.com/in/valentin-walendy-a16ba2328/" target="_blank" rel="noopener">LinkedIn</a></li>
         <li><a href="mailto:valentin.walendy@epfl.ch">valentin.walendy@epfl.ch</a></li>
@@ -60,23 +61,51 @@
     </div>
   </section>
 
-  <!-- Work -->
-  <section class="ab-work" aria-labelledby="ab-work-title">
-    <h2 id="ab-work-title" class="ab-h2">Selected work</h2>
+  <!-- ============ Work ============ -->
+  <section class="ab-section-head">
+    <h2 class="ab-h2" data-split="chars" data-reveal>Selected work</h2>
   </section>
 
-  <article class="roam" aria-labelledby="roam-title">
-    <header class="roam-head">
-      <div class="roam-title-wrap">
-        <img class="roam-icon" src="assets/roam/icon.png" alt="" width="56" height="56">
-        <h3 id="roam-title" class="roam-title">Roam</h3>
-      </div>
-      <p class="roam-lede">An Android app that turns a photo of a monument into a short guide to its story, keeps it in a travel journal, and lets you share it with the friends you travel with.</p>
+  <section class="roam" aria-labelledby="roam-title">
+    <div class="roam-pin">
+      <div class="roam-stage">
 
-      <dl class="roam-meta">
+        <div class="roam-word" aria-hidden="true"><span data-split="chars">Roam</span></div>
+
+        <header class="roam-head">
+          <img class="roam-icon" src="assets/roam/icon.png" alt="" width="56" height="56">
+          <div>
+            <h3 id="roam-title" class="roam-title">Roam</h3>
+            <p class="roam-tag">Snap a monument, discover its story.</p>
+          </div>
+        </header>
+
+        <div class="roam-phones">
+          <figure class="ph" data-ph="identify"><img src="assets/roam/identify.webp" alt="Roam identifying a monument from a photo"></figure>
+          <figure class="ph" data-ph="collection"><img src="assets/roam/collection.webp" alt="Roam collection of saved monuments"></figure>
+          <figure class="ph" data-ph="wishlist"><img src="assets/roam/wishlist.webp" alt="Roam wishlist of places friends scanned"></figure>
+          <figure class="ph" data-ph="snap"><img src="assets/roam/snap.webp" alt="Roam camera framing a monument"></figure>
+          <figure class="ph" data-ph="explore"><img src="assets/roam/explore.webp" alt="Roam map of your and your friends' monuments"></figure>
+          <figure class="ph" data-ph="learn"><img src="assets/roam/learn.webp" alt="Roam guide generated for the Panthéon"></figure>
+        </div>
+
+        <div class="roam-captions">
+          <p class="roam-cap" data-split="chars" data-for="snap">Point, shoot, know.</p>
+          <p class="roam-cap" data-split="chars" data-for="learn">A guide written for you.</p>
+          <p class="roam-cap" data-split="chars" data-for="collection">A travel journal in your pocket.</p>
+          <p class="roam-cap" data-split="chars" data-for="explore">The world, through your friends.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="roam-after">
+      <p class="roam-lede" data-split="words" data-reveal>An Android app that turns a photo of a monument into a short guide to its story, keeps it in a travel journal, and lets you share it with the friends you travel with.</p>
+
+      <dl class="roam-meta" data-reveal>
         <div>
           <dt>Context</dt>
-          <dd>Team project for Software Enterprise (SwEnt), EPFL, 2026</dd>
+          <dd>Built with a team of 7 for Software Enterprise (SwEnt), EPFL, 2026</dd>
         </div>
         <div>
           <dt>App</dt>
@@ -87,67 +116,34 @@
           <dd>Firebase Auth and Firestore, Gemini through Firebase AI Logic</dd>
         </div>
       </dl>
-    </header>
 
-    <div class="roam-flow">
-      <ol class="roam-steps">
-        <li class="roam-step" data-step="0">
-          <span class="roam-step-n" aria-hidden="true">1</span>
-          <h4>Snap</h4>
-          <p>Frame the monument, or pick a photo from your gallery. Your approximate location helps tell look-alike buildings apart.</p>
-          <img class="roam-step-shot" src="assets/roam/snap.webp" alt="Roam camera screen framing a monument" loading="lazy" width="517" height="1118">
-        </li>
-        <li class="roam-step" data-step="1">
-          <span class="roam-step-n" aria-hidden="true">2</span>
-          <h4>Identify</h4>
-          <p>The photo, location and your interests go to a vision model through Firebase. Every step has a clear loading, retry and error state, so a scan never ends in a blank screen.</p>
-          <img class="roam-step-shot" src="assets/roam/identify.webp" alt="Roam analyzing the photo to identify the monument" loading="lazy" width="517" height="1118">
-        </li>
-        <li class="roam-step" data-step="2">
-          <span class="roam-step-n" aria-hidden="true">3</span>
-          <h4>Learn</h4>
-          <p>A short guide shaped by what you care about: architecture, history, one fact worth remembering. It is saved to your collection and stays readable offline.</p>
-          <img class="roam-step-shot" src="assets/roam/learn.webp" alt="Generated guide for the Panthéon in Roam" loading="lazy" width="517" height="1118">
-        </li>
-        <li class="roam-step" data-step="3">
-          <span class="roam-step-n" aria-hidden="true">4</span>
-          <h4>Explore</h4>
-          <p>Your monuments and your friends' discoveries on one map. Nothing is shared until you pick who sees it, and friends only ever see the city.</p>
-          <img class="roam-step-shot" src="assets/roam/explore.webp" alt="Roam map showing your and your friends' monuments" loading="lazy" width="517" height="1118">
-        </li>
-      </ol>
-
-      <div class="roam-stage" aria-hidden="true">
-        <div class="roam-phone">
-          <img src="assets/roam/snap.webp" alt="" class="is-active">
-          <img src="assets/roam/identify.webp" alt="">
-          <img src="assets/roam/learn.webp" alt="">
-          <img src="assets/roam/explore.webp" alt="">
-        </div>
-        <div class="roam-progress">
-          <button type="button" data-go="0" tabindex="-1"><span>Snap</span></button>
-          <button type="button" data-go="1" tabindex="-1"><span>Identify</span></button>
-          <button type="button" data-go="2" tabindex="-1"><span>Learn</span></button>
-          <button type="button" data-go="3" tabindex="-1"><span>Explore</span></button>
-        </div>
-      </div>
+      <a class="ab-cta" href="https://github.com/ROAM-SWENT/roam-android" target="_blank" rel="noopener" data-reveal>View the code on GitHub</a>
     </div>
-
-    <footer class="roam-foot">
-      <a class="ab-cta" href="https://github.com/ROAM-SWENT/roam-android" target="_blank" rel="noopener">View the code on GitHub</a>
-    </footer>
-  </article>
+  </section>
 
   <section class="ab-more">
     <p>Other projects, including ReChor, a Swiss public transport route planner, are on <a href="https://github.com/vwalendy" target="_blank" rel="noopener">my GitHub</a>.</p>
   </section>
 
-  <!-- Photography -->
+  <!-- ============ Photography ============ -->
   <section class="ab-photo" aria-labelledby="ab-photo-title">
-    <h2 id="ab-photo-title" class="ab-h2">Photography</h2>
-    <div class="ab-photo-body">
-      <p>In summer 2026 I spent two months in India for my internship, and travelled whenever I could: Bangalore, Hampi, Varanasi, Agra, and on to Nepal. Photography became the way I kept those places. This site collects the pictures that stayed with me.</p>
-      <a class="ab-cta" href="destinations.html">See the destinations</a>
+    <div class="ab-photo-head">
+      <h2 id="ab-photo-title" class="ab-h2" data-split="chars" data-reveal>Photography</h2>
+      <div class="ab-photo-body">
+        <p data-split="words" data-reveal>In summer 2026 I spent two months in India for my internship, and travelled whenever I could: Bangalore, Hampi, Varanasi, Agra, and on to Nepal. Photography became the way I kept those places.</p>
+        <a class="ab-cta" href="destinations.html" data-reveal>See the destinations</a>
+      </div>
+    </div>
+
+    <div class="ab-strip" aria-hidden="true">
+      <div class="ab-strip-track">
+        <img src="assets/strip/nepal6.jpg" alt="" loading="lazy" class="s-a">
+        <img src="assets/strip/varanasi7.jpg" alt="" loading="lazy" class="s-b">
+        <img src="assets/strip/bangalore2.jpg" alt="" loading="lazy" class="s-c">
+        <img src="assets/strip/taj13.jpg" alt="" loading="lazy" class="s-d">
+        <img src="assets/strip/varanasi3.jpg" alt="" loading="lazy" class="s-e">
+        <img src="assets/strip/hampi1.jpg" alt="" loading="lazy" class="s-f">
+      </div>
     </div>
   </section>
 
