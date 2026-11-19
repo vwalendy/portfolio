@@ -4,9 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Valentin Walendy</title>
+<meta name="description" content="Valentin Walendy, computer science student at EPFL. Software projects and travel photography.">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="about.css">
+<link rel="preload" as="image" href="photos/portrait.jpg">
 </head>
-<body>
+<body class="ab">
 
 <nav class="nav">
   <div class="nav-left">
@@ -18,42 +21,144 @@
   </div>
 </nav>
 
-<section class="about">
+<main>
 
-  <div class="about-photo frame">
-    <img src="photos/moi2.jpg" alt="Valentin Walendy">
-  </div>
+  <!-- Intro -->
+  <section class="ab-intro" aria-labelledby="ab-name">
+    <figure class="ab-portrait">
+      <img src="photos/portrait.jpg" alt="Portrait of Valentin Walendy" width="880" height="1100">
+    </figure>
 
-  <div class="about-text">
-    <span class="eyebrow">About</span>
-    <h1>Valentin Walendy</h1>
+    <div class="ab-intro-text">
+      <h1 id="ab-name" class="ab-name">
+        <span class="ab-line"><span>Valentin</span></span>
+        <span class="ab-line"><span>Walendy</span></span>
+      </h1>
 
-    <p>I'm Valentin Walendy, a Computer Science Bachelor's student at EPFL (École Polytechnique Fédérale de Lausanne). I'm particularly interested in data analytics, computational modeling and algorithmic problem-solving, and I enjoy working on projects related to these fields, some of which you can find on my other profiles.</p>
+      <p class="ab-statement ab-in">I study computer science at EPFL and like problems where data, models and algorithms meet. When I travel, I take photographs; most of this site is those.</p>
 
-    <p>Alongside my studies, photography has become one of my favorite ways to explore and document the world around me. Through this website, I want to share some of the places, moments and scenes that have caught my attention, and simply the photographs that mean something to me.</p>
+      <dl class="ab-facts ab-in">
+        <div>
+          <dt>Studying</dt>
+          <dd>BSc Computer Science, EPFL, Lausanne</dd>
+        </div>
+        <div>
+          <dt>Summer 2026</dt>
+          <dd>Data &amp; AI intern, Infosys, Bangalore</dd>
+        </div>
+        <div>
+          <dt>Interested in</dt>
+          <dd>Data analytics, computational modelling, algorithmic problem-solving</dd>
+        </div>
+      </dl>
 
-    <p>In the summer of 2026, I had the opportunity to spend two months in India for an internship at Infosys as a Data &amp; AI Intern. Living there also gave me the chance to travel across the region, discover new places and cultures, meet people and experience environments very different from what I was used to. Photography naturally became a way for me to capture and remember these experiences.</p>
-
-    <p>This portfolio brings together some of those photographs, as well as others taken along the way. It is simply a collection of places, people and moments that I wanted to capture and share.</p>
-
-    <div class="about-contact">
-      <span class="eyebrow">Get in touch</span>
-      <ul>
-        <li>Github — <a href="https://github.com/vwalendy" target="_blank" rel="noopener">vwalendy</a></li>
-        <li>Email — <a href="mailto:valentin.walendy@epfl.ch">valentin.walendy@epfl.ch</a></li>
-        <li>Email — <a href="mailto:vwalendy@gmail.com">vwalendy@gmail.com</a></li>
-        <li>LinkedIn — <a href="https://www.linkedin.com/in/valentin-walendy-a16ba2328/" target="_blank" rel="noopener">valentin walendy</a></li>
+      <ul class="ab-links ab-in">
+        <li><a href="https://github.com/vwalendy" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/valentin-walendy-a16ba2328/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a href="mailto:valentin.walendy@epfl.ch">valentin.walendy@epfl.ch</a></li>
       </ul>
     </div>
-  </div>
+  </section>
 
-</section>
+  <!-- Work -->
+  <section class="ab-work" aria-labelledby="ab-work-title">
+    <h2 id="ab-work-title" class="ab-h2">Selected work</h2>
+  </section>
+
+  <article class="roam" aria-labelledby="roam-title">
+    <header class="roam-head">
+      <div class="roam-title-wrap">
+        <img class="roam-icon" src="assets/roam/icon.png" alt="" width="56" height="56">
+        <h3 id="roam-title" class="roam-title">Roam</h3>
+      </div>
+      <p class="roam-lede">An Android app that turns a photo of a monument into a short guide to its story, keeps it in a travel journal, and lets you share it with the friends you travel with.</p>
+
+      <dl class="roam-meta">
+        <div>
+          <dt>Context</dt>
+          <dd>Team project for Software Enterprise (SwEnt), EPFL, 2026</dd>
+        </div>
+        <div>
+          <dt>App</dt>
+          <dd>Kotlin, Jetpack Compose, CameraX, Google Maps</dd>
+        </div>
+        <div>
+          <dt>Cloud</dt>
+          <dd>Firebase Auth and Firestore, Gemini through Firebase AI Logic</dd>
+        </div>
+      </dl>
+    </header>
+
+    <div class="roam-flow">
+      <ol class="roam-steps">
+        <li class="roam-step" data-step="0">
+          <span class="roam-step-n" aria-hidden="true">1</span>
+          <h4>Snap</h4>
+          <p>Frame the monument, or pick a photo from your gallery. Your approximate location helps tell look-alike buildings apart.</p>
+          <img class="roam-step-shot" src="assets/roam/snap.webp" alt="Roam camera screen framing a monument" loading="lazy" width="517" height="1118">
+        </li>
+        <li class="roam-step" data-step="1">
+          <span class="roam-step-n" aria-hidden="true">2</span>
+          <h4>Identify</h4>
+          <p>The photo, location and your interests go to a vision model through Firebase. Every step has a clear loading, retry and error state, so a scan never ends in a blank screen.</p>
+          <img class="roam-step-shot" src="assets/roam/identify.webp" alt="Roam analyzing the photo to identify the monument" loading="lazy" width="517" height="1118">
+        </li>
+        <li class="roam-step" data-step="2">
+          <span class="roam-step-n" aria-hidden="true">3</span>
+          <h4>Learn</h4>
+          <p>A short guide shaped by what you care about: architecture, history, one fact worth remembering. It is saved to your collection and stays readable offline.</p>
+          <img class="roam-step-shot" src="assets/roam/learn.webp" alt="Generated guide for the Panthéon in Roam" loading="lazy" width="517" height="1118">
+        </li>
+        <li class="roam-step" data-step="3">
+          <span class="roam-step-n" aria-hidden="true">4</span>
+          <h4>Explore</h4>
+          <p>Your monuments and your friends' discoveries on one map. Nothing is shared until you pick who sees it, and friends only ever see the city.</p>
+          <img class="roam-step-shot" src="assets/roam/explore.webp" alt="Roam map showing your and your friends' monuments" loading="lazy" width="517" height="1118">
+        </li>
+      </ol>
+
+      <div class="roam-stage" aria-hidden="true">
+        <div class="roam-phone">
+          <img src="assets/roam/snap.webp" alt="" class="is-active">
+          <img src="assets/roam/identify.webp" alt="">
+          <img src="assets/roam/learn.webp" alt="">
+          <img src="assets/roam/explore.webp" alt="">
+        </div>
+        <div class="roam-progress">
+          <button type="button" data-go="0" tabindex="-1"><span>Snap</span></button>
+          <button type="button" data-go="1" tabindex="-1"><span>Identify</span></button>
+          <button type="button" data-go="2" tabindex="-1"><span>Learn</span></button>
+          <button type="button" data-go="3" tabindex="-1"><span>Explore</span></button>
+        </div>
+      </div>
+    </div>
+
+    <footer class="roam-foot">
+      <a class="ab-cta" href="https://github.com/ROAM-SWENT/roam-android" target="_blank" rel="noopener">View the code on GitHub</a>
+    </footer>
+  </article>
+
+  <section class="ab-more">
+    <p>Other projects, including ReChor, a Swiss public transport route planner, are on <a href="https://github.com/vwalendy" target="_blank" rel="noopener">my GitHub</a>.</p>
+  </section>
+
+  <!-- Photography -->
+  <section class="ab-photo" aria-labelledby="ab-photo-title">
+    <h2 id="ab-photo-title" class="ab-h2">Photography</h2>
+    <div class="ab-photo-body">
+      <p>In summer 2026 I spent two months in India for my internship, and travelled whenever I could: Bangalore, Hampi, Varanasi, Agra, and on to Nepal. Photography became the way I kept those places. This site collects the pictures that stayed with me.</p>
+      <a class="ab-cta" href="destinations.html">See the destinations</a>
+    </div>
+  </section>
+
+</main>
 
 <footer class="site-footer">
   <span>Valentin Walendy</span>
-  <span>India, 2026</span>
+  <span>Lausanne, 2026</span>
 </footer>
 
 <script src="cursor.js"></script>
+<script src="about.js"></script>
 </body>
 </html>
