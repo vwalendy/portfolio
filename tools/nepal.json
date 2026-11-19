@@ -1,0 +1,95 @@
+{
+ "title": "Nepal",
+ "region": "Kathmandu and the Himalaya",
+ "hero": "nepal6",
+ "intro": "Kathmandu's stupas and markets, then the trails up into the hills, through villages and terraces toward the high Himalaya.",
+ "next": {
+  "href": "bangalore.html",
+  "name": "Bangalore",
+  "img": "assets/dest/bangalore-1.jpg"
+ },
+ "rows": [
+  [
+   "full",
+   "nepal5"
+  ],
+  [
+   "pair",
+   "nepal1",
+   "nepal12"
+  ],
+  [
+   "full",
+   "nepal3"
+  ],
+  [
+   "offset",
+   "nepal2",
+   "nepal15"
+  ],
+  [
+   "full",
+   "nepal13"
+  ],
+  [
+   "pair",
+   "nepal14",
+   "nepal18"
+  ],
+  [
+   "offset-rev",
+   "nepal11",
+   "nepal9"
+  ],
+  [
+   "pair",
+   "nepal10",
+   "nepal8"
+  ],
+  [
+   "wide",
+   "nepal25"
+  ],
+  [
+   "full",
+   "nepal26"
+  ],
+  [
+   "pair",
+   "nepal16",
+   "nepal17"
+  ],
+  [
+   "full",
+   "nepal4"
+  ],
+  [
+   "pair",
+   "nepal19",
+   "nepal23"
+  ],
+  [
+   "full",
+   "nepal7"
+  ],
+  [
+   "full",
+   "nepal21"
+  ],
+  [
+   "pair",
+   "nepal20",
+   "nepal22"
+  ],
+  [
+   "offset",
+   "nepal27",
+   "nepal28"
+  ],
+  [
+   "full",
+   "nepal24"
+  ]
+ ],
+ "file": "nepal.html"
+}

@@ -1,0 +1,42 @@
+{
+ "title": "Hampi",
+ "region": "Karnataka, India",
+ "hero": "hampi1",
+ "intro": "The ruins of Vijayanagara, spread across a landscape of boulders and banana fields along the Tungabhadra river.",
+ "next": {
+  "href": "varanasi.html",
+  "name": "Varanasi",
+  "img": "assets/dest/varanasi-1.jpg"
+ },
+ "rows": [
+  [
+   "pair",
+   "hampi3",
+   "hampi5"
+  ],
+  [
+   "full",
+   "hampi10"
+  ],
+  [
+   "offset-rev",
+   "hampi6",
+   "hampi8"
+  ],
+  [
+   "pair",
+   "hampi4",
+   "hampi9"
+  ],
+  [
+   "full",
+   "hampi11"
+  ],
+  [
+   "pair",
+   "hampi2",
+   "hampi7"
+  ]
+ ],
+ "file": "hampi.html"
+}

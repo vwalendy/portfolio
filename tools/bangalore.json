@@ -1,0 +1,72 @@
+{
+ "title": "Bangalore",
+ "region": "Karnataka, India",
+ "hero": "bangalore1",
+ "intro": "Where I lived for two months during my internship. Mostly everyday streets: auto-rickshaws, corner shops, busy kitchens and the city's temples.",
+ "next": {
+  "href": "hampi.html",
+  "name": "Hampi",
+  "img": "assets/dest/hampi-1.jpg"
+ },
+ "rows": [
+  [
+   "full",
+   "bangalore3"
+  ],
+  [
+   "pair",
+   "bangalore4",
+   "bangalore5"
+  ],
+  [
+   "full",
+   "bangalore8"
+  ],
+  [
+   "offset",
+   "bangalore12",
+   "bangalore2"
+  ],
+  [
+   "wide",
+   "bangalore17"
+  ],
+  [
+   "pair",
+   "bangalore10",
+   "bangalore6"
+  ],
+  [
+   "solo",
+   "bangalore20"
+  ],
+  [
+   "pair",
+   "bangalore13",
+   "bangalore19"
+  ],
+  [
+   "full",
+   "bangalore16"
+  ],
+  [
+   "offset-rev",
+   "bangalore11",
+   "bangalore15"
+  ],
+  [
+   "full",
+   "bangalore14"
+  ],
+  [
+   "pair",
+   "bangalore7",
+   "bangalore18"
+  ],
+  [
+   "full",
+   "bangalore9"
+  ]
+ ],
+ "file": "bangalore.html"
+}

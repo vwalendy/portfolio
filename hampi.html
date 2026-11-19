@@ -1,89 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>(function(){try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hampi — Valentin Walendy</title>
+<meta name="description" content="Photographs of Hampi, Karnataka, India.">
+<link rel="preload" href="assets/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="photos/hampi1.jpg">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="about.css">
+<link rel="stylesheet" href="place.css">
 </head>
-<body>
+<body class="ab pl">
 
-<nav class="nav">
+<nav class="nav ab-nav pl-nav">
   <div class="nav-left">
     <a href="index.html" class="nav-logo">Valentin Walendy</a>
     <a href="about.html" class="about-link">About</a>
   </div>
   <div class="nav-links">
-    <a href="destinations.html">Destinations</a>
-    <a href="nepal.html">Nepal</a>
-    <a href="hampi.html" class="active">Hampi</a>
-    <a href="bangalore.html">Bangalore</a>
-    <a href="varanasi.html">Varanasi</a>
-    <a href="taj.html">Taj Mahal</a>
-    </div>
+    <a href="destinations.html">All destinations</a>
+  </div>
 </nav>
 
-<div class="gallery-header">
-  <span class="eyebrow num">02 — India</span>
-  <h1>Hampi</h1>
+<header class="pl-hero">
+  <div class="pl-hero-img"><img src="photos/hampi1.jpg" alt="" width="1400" height="933"></div>
+  <div class="pl-hero-text">
+    <h1 class="pl-title" data-split="chars">Hampi</h1>
+    <p class="pl-sub">Karnataka, India. 11 photographs</p>
+  </div>
+</header>
+
+<main>
+  <section class="pl-intro">
+    <p data-split="words" data-reveal>The ruins of Vijayanagara, spread across a landscape of boulders and banana fields along the Tungabhadra river.</p>
+  </section>
+
+  <section class="pl-essay" aria-label="Photographs">
+    <div class="row row-pair" style="grid-template-columns: 0.666fr 0.666fr">
+      <figure class="pf" data-i="0" tabindex="0" role="button" aria-label="Open photo 1"><img src="photos/m/hampi3.jpg" data-full="photos/hampi3.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+      <figure class="pf" data-i="1" tabindex="0" role="button" aria-label="Open photo 2"><img src="photos/m/hampi5.jpg" data-full="photos/hampi5.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+    </div>
+    <div class="row row-full">
+      <figure class="pf" data-i="2" tabindex="0" role="button" aria-label="Open photo 3"><img src="photos/m/hampi10.jpg" data-full="photos/hampi10.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+    </div>
+    <div class="row row-offset-rev">
+      <figure class="pf" data-i="3" tabindex="0" role="button" aria-label="Open photo 4"><img src="photos/m/hampi6.jpg" data-full="photos/hampi6.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+      <figure class="pf" data-i="4" tabindex="0" role="button" aria-label="Open photo 5"><img src="photos/m/hampi8.jpg" data-full="photos/hampi8.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+    </div>
+    <div class="row row-pair" style="grid-template-columns: 0.666fr 0.666fr">
+      <figure class="pf" data-i="5" tabindex="0" role="button" aria-label="Open photo 6"><img src="photos/m/hampi4.jpg" data-full="photos/hampi4.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+      <figure class="pf" data-i="6" tabindex="0" role="button" aria-label="Open photo 7"><img src="photos/m/hampi9.jpg" data-full="photos/hampi9.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+    </div>
+    <div class="row row-full">
+      <figure class="pf" data-i="7" tabindex="0" role="button" aria-label="Open photo 8"><img src="photos/m/hampi11.jpg" data-full="photos/hampi11.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+    </div>
+    <div class="row row-pair" style="grid-template-columns: 0.666fr 0.666fr">
+      <figure class="pf" data-i="8" tabindex="0" role="button" aria-label="Open photo 9"><img src="photos/m/hampi2.jpg" data-full="photos/hampi2.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+      <figure class="pf" data-i="9" tabindex="0" role="button" aria-label="Open photo 10"><img src="photos/m/hampi7.jpg" data-full="photos/hampi7.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <a class="pl-next" href="varanasi.html">
+    <span class="pl-next-img"><img src="assets/dest/varanasi-1.jpg" alt="" loading="lazy"></span>
+    <span class="pl-next-text">
+      <span class="pl-next-label">Next destination</span>
+      <span class="pl-next-name" data-split="chars" data-reveal>Varanasi</span>
+    </span>
+  </a>
+</main>
+
+<div class="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <img class="lb-img" alt="">
+  <button class="lb-btn lb-close" type="button" aria-label="Close">
+    <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <button class="lb-btn lb-next" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+  <span class="lb-count"></span>
 </div>
 
-<div class="gallery dense">
-  <div class="frame">
-    <img src="photos/hampi1.jpg" alt="Hampi 1" loading="lazy">
-    <div class="cap"><span>Hampi</span><span>01</span></div>
-  </div>
-  <div class="frame">
-    <img src="photos/hampi2.jpg" alt="Hampi 2" loading="lazy">
-    <div class="cap"><span>Hampi</span><span>02</span></div>
-  </div>
-  <div class="frame">
-    <img src="photos/hampi3.jpg" alt="Hampi 3" loading="lazy">
-    <div class="cap"><span>Hampi</span><span>03</span></div>
-  </div>
-  <div class="frame">
-    <img src="photos/hampi4.jpg" alt="Hampi 4" loading="lazy">
-    <div class="cap"><span>Hampi</span><span>04</span></div>
-  </div>
-  <div class="frame">
-    <img src="photos/hampi5.jpg" alt="Hampi 5" loading="lazy">
-    <div class="cap"><span>Hampi</span><span>05</span></div>
-  </div>
-  <div class="frame">
-    <img src="photos/hampi6.jpg" alt="Hampi 6" loading="lazy">
-    <div class="cap"><span>Hampi</span><span>06</span></div>
-  </div>
-  <div class="frame">
-    <img src="photos/hampi7.jpg" alt="Hampi 7" loading="lazy">
-    <div class="cap"><span>Hampi</span><span>07</span></div>
-  </div>
-  <div class="frame">
-    <img src="photos/hampi8.jpg" alt="Hampi 8" loading="lazy">
-    <div class="cap"><span>Hampi</span><span>08</span></div>
-  </div>
-  <div class="frame">
-    <img src="photos/hampi9.jpg" alt="Hampi 9" loading="lazy">
-    <div class="cap"><span>Hampi</span><span>09</span></div>
-  </div>
-  <div class="frame">
-    <img src="photos/hampi10.jpg" alt="Hampi 10" loading="lazy">
-    <div class="cap"><span>Hampi</span><span>10</span></div>
-  </div>
-  <div class="frame">
-    <img src="photos/hampi11.jpg" alt="Hampi 11" loading="lazy">
-    <div class="cap"><span>Hampi</span><span>11</span></div>
-  </div>
-</div>
-
-<footer class="site-footer">
-  <span>Valentin Walendy</span>
-  <span>India, 2026</span>
-</footer>
-
+<nav class="dock" aria-label="Quick links">
+  <a class="dock-i" href="index.html" data-tip="Home" aria-label="Home">
+    <svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg>
+  </a>
+  <a class="dock-i" href="destinations.html" data-tip="Destinations" aria-label="Destinations">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5z"/></svg>
+  </a>
+  <span class="dock-sep" aria-hidden="true"></span>
+  <a class="dock-i" href="https://github.com/vwalendy" target="_blank" rel="noopener" data-tip="GitHub" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" class="fill"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.7c-2.6.6-3.2-1.2-3.2-1.2-.4-1.1-1-1.4-1-1.4-.9-.6 0-.6 0-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.1-.2-4.3-1-4.3-4.6 0-1 .4-1.9 1-2.6-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.6 1a9 9 0 0 1 4.8 0c1.8-1.3 2.6-1 2.6-1 .5 1.3.2 2.3.1 2.5.6.7 1 1.6 1 2.6 0 3.7-2.2 4.4-4.3 4.6.3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5z"/></svg>
+  </a>
+  <a class="dock-i" href="https://www.linkedin.com/in/valentin-walendy-a16ba2328/" target="_blank" rel="noopener" data-tip="LinkedIn" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" class="fill"><path d="M5.2 8.8h3.1V19H5.2zM6.8 4a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.3 8.8h3v1.4c.4-.8 1.5-1.6 3-1.6 3.2 0 3.8 2.1 3.8 4.8V19H17v-5c0-1.2 0-2.7-1.7-2.7s-1.9 1.3-1.9 2.6V19h-3.1z"/></svg>
+  </a>
+  <a class="dock-i" href="mailto:valentin.walendy@epfl.ch" data-tip="valentin.walendy@epfl.ch" aria-label="Email valentin.walendy@epfl.ch">
+    <svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+  </a>
+</nav>
 
 <script src="cursor.js"></script>
-<script src="theme.js"></script>
-<script src="lightbox.js"></script>
+<script src="place.js"></script>
 </body>
 </html>

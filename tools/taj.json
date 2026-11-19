@@ -1,0 +1,68 @@
+{
+ "title": "Taj Mahal",
+ "region": "Agra, India",
+ "hero": "taj8",
+ "intro": "From the gardens at dusk to the marble up close, and the red sandstone buildings that frame it.",
+ "next": {
+  "href": "nepal.html",
+  "name": "Nepal",
+  "img": "assets/dest/nepal-1.jpg"
+ },
+ "rows": [
+  [
+   "full",
+   "taj19"
+  ],
+  [
+   "pair",
+   "taj3",
+   "taj6"
+  ],
+  [
+   "offset",
+   "taj13",
+   "taj22"
+  ],
+  [
+   "wide",
+   "taj9"
+  ],
+  [
+   "pair",
+   "taj2",
+   "taj20"
+  ],
+  [
+   "full",
+   "taj14"
+  ],
+  [
+   "offset-rev",
+   "taj23",
+   "taj18"
+  ],
+  [
+   "pair",
+   "taj5",
+   "taj12"
+  ],
+  [
+   "full",
+   "taj16"
+  ],
+  [
+   "pair",
+   "taj17",
+   "taj1"
+  ],
+  [
+   "full",
+   "taj7"
+  ],
+  [
+   "full",
+   "taj15"
+  ]
+ ],
+ "file": "taj.html"
+}
