@@ -145,27 +145,38 @@
 }
 .dest-pin-label.is-on { opacity: 1; }
 
-/* the place's photo, pinned to the lower left of the globe */
-.dest-previews {
+/* a small pile of prints from the place, overlapping the lower left of the globe */
+.dest-stacks {
   position: absolute;
-  left: 2%;
-  bottom: 9vh;
-  width: clamp(200px, 21vw, 340px);
-  aspect-ratio: 3 / 2;
+  left: 0;
+  bottom: 8vh;
+  width: clamp(240px, 24vw, 400px);
+  aspect-ratio: 4 / 3;
 }
-.dest-previews img {
+.stack { position: absolute; inset: 0; }
+.stack img {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  box-shadow: 0 0 0 1px var(--line), 0 30px 60px -30px rgba(27, 36, 48, 0.45);
-  clip-path: inset(100% 0 0 0);
-  transform: scale(1.06);
-  transition: clip-path 0.7s var(--ease-in-out), transform 1s var(--ease-out);
+  width: 72%;
+  height: auto;
+  padding: clamp(5px, 0.5vw, 8px);
+  background: var(--bg);
+  box-shadow: 0 0 0 1px var(--line), 0 24px 50px -24px rgba(27, 36, 48, 0.5);
+  opacity: 0;
+  transform: translate(var(--x), calc(var(--y) + 40px)) rotate(calc(var(--r) * 2.2)) scale(0.96);
+  transition: opacity 0.35s ease, transform 0.6s var(--ease-out);
 }
-.dest-previews img.is-portrait { aspect-ratio: 2 / 3; height: auto; top: auto; bottom: 0; width: 66%; }
-.dest-previews img.is-on { clip-path: inset(0 0 0 0); transform: none; }
+.stack img.tall { width: 44%; }
+.stack img:nth-child(1) { --x: 0%;   --y: 18%;  --r: -5deg; left: 0;   top: 0;   z-index: 1; }
+.stack img:nth-child(2) { --x: 0%;   --y: 0%;   --r: 4deg;  left: 30%; top: -6%; z-index: 2; }
+.stack img:nth-child(3) { --x: 0%;   --y: 0%;   --r: -1.5deg; left: 14%; top: 34%; z-index: 3; }
+
+.stack.is-on img {
+  opacity: 1;
+  transform: translate(var(--x), var(--y)) rotate(var(--r));
+  transition: opacity 0.5s ease, transform 0.9s var(--ease-out);
+}
+.stack.is-on img:nth-child(2) { transition-delay: 0.07s; }
+.stack.is-on img:nth-child(3) { transition-delay: 0.14s; }
 
 /* ---------- small screens: globe on top, list scrolls under it ---------- */
 
@@ -181,12 +192,12 @@
     background: linear-gradient(var(--bg) 85%, transparent);
   }
   .dest-globe { width: auto; height: 44vh; }
-  .dest-previews { left: auto; right: var(--gutter); bottom: 1.5vh; width: 34vw; }
+  .dest-stacks { left: auto; right: 2vw; bottom: 0; width: 44vw; }
   .dest-list-wrap { padding-top: 0.5rem; }
   .dest-item { padding: 1.4rem 0; }
   .dest-list li:last-child { margin-bottom: 30vh; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .dest-item, .dest-meta, .dest-globe, .dest-previews img { transition: none !important; }
+  .dest-item, .dest-meta, .dest-globe, .stack img { transition: none !important; }
 }

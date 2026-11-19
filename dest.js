@@ -37,9 +37,9 @@
   var HOME = { name: "Lausanne", lonlat: [6.63, 46.52] };
   var PLACES = {
     bangalore: { name: "Bangalore", lonlat: [77.59, 12.97], zoom: 3.2 },
-    hampi:     { name: "Hampi",     lonlat: [76.46, 15.34], zoom: 3.4 },
+    hampi:     { name: "Hampi",     lonlat: [76.46, 15.34], zoom: 3.4, labelLeft: true },
     varanasi:  { name: "Varanasi",  lonlat: [82.97, 25.32], zoom: 3.2 },
-    taj:       { name: "Agra",      lonlat: [78.04, 27.18], zoom: 3.2 },
+    taj:       { name: "Agra (Taj Mahal)", lonlat: [78.04, 27.18], zoom: 3.2, labelLeft: true },
     nepal:     { name: "Kathmandu", lonlat: [85.32, 27.72], zoom: 3.2 }
   };
   var BASE = PLACES.bangalore.lonlat;
@@ -49,7 +49,7 @@
   var label = document.querySelector(".dest-pin-label");
   var list = document.querySelector(".dest-list");
   var items = Array.prototype.slice.call(document.querySelectorAll(".dest-item"));
-  var previews = Array.prototype.slice.call(document.querySelectorAll(".dest-previews img"));
+  var previews = Array.prototype.slice.call(document.querySelectorAll(".stack"));
   if (!canvas || !window.d3 || !window.topojson) return;
 
   var ctx = canvas.getContext("2d");
@@ -185,9 +185,31 @@
       if (key === active) labelAt = p;
     });
 
+    // Names next to every visible place; the active one is drawn as an HTML pill.
+    {
+      ctx.font = "500 " + (cam.zoom > 1.9 ? 12 : 11) + "px 'Work Sans', sans-serif";
+      ctx.textBaseline = "middle";
+      Object.keys(PLACES).forEach(function (key) {
+        if (key === active || !visible(PLACES[key].lonlat)) return;
+        var q = projection(PLACES[key].lonlat);
+        var off = PLACES[key].labelLeft ? -10 - ctx.measureText(PLACES[key].name).width : 10;
+        ctx.lineWidth = 3; ctx.strokeStyle = colors.sea; ctx.globalAlpha = 1;
+        ctx.strokeText(PLACES[key].name, q[0] + off, q[1]);
+        ctx.fillStyle = colors.pin; ctx.fillText(PLACES[key].name, q[0] + off, q[1]);
+        ctx.globalAlpha = 1;
+      });
+      if (visible(HOME.lonlat)) {
+        var hq = projection(HOME.lonlat);
+        ctx.lineWidth = 3; ctx.strokeStyle = colors.sea; ctx.strokeText(HOME.name, hq[0] + 9, hq[1]);
+        ctx.fillStyle = colors.pin; ctx.fillText(HOME.name, hq[0] + 9, hq[1]);
+      }
+    }
+
     if (labelAt && active) {
       label.textContent = PLACES[active].name;
-      label.style.transform = "translate(" + (labelAt[0] + 14).toFixed(1) + "px," + (labelAt[1] - 12).toFixed(1) + "px)";
+      var lw = label.offsetWidth || 80;
+      var left = PLACES[active].labelLeft ? labelAt[0] - 14 - lw : labelAt[0] + 14;
+      label.style.transform = "translate(" + left.toFixed(1) + "px," + (labelAt[1] - 12).toFixed(1) + "px)";
       label.classList.add("is-on");
     } else {
       label.classList.remove("is-on");
@@ -209,7 +231,7 @@
     else flyTo(OVERVIEW.lonlat, OVERVIEW.zoom);
   }
 
-  var touch = window.matchMedia("(max-width: 900px), (hover: none)").matches;
+  var touch = !window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   if (!touch) {
     items.forEach(function (it) {
       var key = it.getAttribute("data-key");
