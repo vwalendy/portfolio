@@ -1,22 +1,13 @@
 /* Destinations: the list of places on the left, a globe that turns to the place under the pointer */
 
 .dest {
-  --globe-land: #dde3ea;
-  --globe-land-hl: #c5cfdb;
+  --globe-land: #dde4ef;
+  --globe-land-hl: #b9c7dc;
   --globe-border: #ffffff;
-  --globe-grid: rgba(27, 36, 48, 0.06);
-  --globe-sea: #f6f8fa;
-  --globe-route: #3e5c7d;
-  --globe-pin: #1b2430;
-}
-[data-theme="dark"] .dest {
-  --globe-land: #1c232d;
-  --globe-land-hl: #2a3443;
-  --globe-border: #0f1319;
-  --globe-grid: rgba(227, 232, 239, 0.05);
-  --globe-sea: #131820;
-  --globe-route: #8fa9c7;
-  --globe-pin: #e3e8ef;
+  --globe-grid: rgba(11, 31, 63, 0.06);
+  --globe-sea: #f5f8fc;
+  --globe-route: #1d3d73;
+  --globe-pin: #0b1f3f;
 }
 
 .dest-main {
@@ -139,7 +130,7 @@
   padding: 0.25rem 0.55rem;
   border-radius: 999px;
   background: var(--bg);
-  box-shadow: 0 0 0 1px var(--line), 0 6px 18px -8px rgba(27, 36, 48, 0.3);
+  box-shadow: 0 0 0 1px var(--line), 0 6px 18px -8px rgba(11, 31, 63, 0.3);
   opacity: 0;
   transition: opacity 0.3s ease;
 }

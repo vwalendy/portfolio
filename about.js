@@ -324,8 +324,8 @@
     var t = reduce ? (p > 0.5 ? 1 : 0) : clamp((p - 0.03) / 0.57, 0, 1);
 
     var cs = getComputedStyle(body);
-    var BG = hexToRgb(cs.getPropertyValue("--bg"));
-    var INKC = hexToRgb(cs.getPropertyValue("--ink"));
+    var BG = hexToRgb(cs.getPropertyValue("--navy"));
+    var INKC = hexToRgb(cs.getPropertyValue("--navy-ink"));
 
     var s0 = Math.min(vw * 0.11, vh * 0.14, 120);
     var cxp = vw / 2, cyp = vh * 0.7;
