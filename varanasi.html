@@ -1,242 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<script>
-(function(){
-  try {
-    if(localStorage.getItem("theme")==="dark")
-      document.documentElement.setAttribute("data-theme","dark");
-  } catch(e) {}
-})();
-</script>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Varanasi — Valentin Walendy</title>
+<meta name="description" content="Photographs of Varanasi, Uttar Pradesh, India.">
+<link rel="preload" href="assets/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="photos/varanasi7.jpg">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="about.css">
+<link rel="stylesheet" href="place.css">
 </head>
+<body class="ab pl">
 
-<body>
-
-<nav class="nav">
+<nav class="nav ab-nav pl-nav">
   <div class="nav-left">
     <a href="index.html" class="nav-logo">Valentin Walendy</a>
     <a href="about.html" class="about-link">About</a>
   </div>
-
   <div class="nav-links">
-    <a href="destinations.html">Destinations</a>
-    <a href="nepal.html">Nepal</a>
-    <a href="hampi.html">Hampi</a>
-    <a href="bangalore.html">Bangalore</a>
-    <a href="varanasi.html" class="active">Varanasi</a>
-    <a href="taj.html">Taj Mahal</a>
-    </div>
+    <a href="destinations.html">All destinations</a>
+  </div>
 </nav>
 
+<header class="pl-hero">
+  <div class="pl-hero-img"><img src="photos/varanasi7.jpg" alt="" width="1400" height="933"></div>
+  <div class="pl-hero-text">
+    <h1 class="pl-title" data-split="chars">Varanasi</h1>
+    <p class="pl-sub">Uttar Pradesh, India. 20 photographs</p>
+  </div>
+</header>
 
-<div class="gallery-header">
-  <span class="eyebrow num">04 — India</span>
-  <h1>Varanasi</h1>
+<main>
+  <section class="pl-intro">
+    <p data-split="words" data-reveal>One of the oldest continuously inhabited cities in the world, on the west bank of the Ganges. Most of these were taken from the river, looking back at the ghats where the city comes down to the water.</p>
+  </section>
+
+  <section class="pl-essay" aria-label="Photographs">
+    <div class="row row-full">
+      <figure class="pf" data-i="0" tabindex="0" role="button" aria-label="Open photo 1"><img src="photos/m/varanasi26.jpg" data-full="photos/varanasi26.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+    </div>
+    <div class="row row-pair" style="grid-template-columns: 1.501fr 0.666fr">
+      <figure class="pf" data-i="1" tabindex="0" role="button" aria-label="Open photo 2"><img src="photos/m/varanasi3.jpg" data-full="photos/varanasi3.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+      <figure class="pf" data-i="2" tabindex="0" role="button" aria-label="Open photo 3"><img src="photos/m/varanasi1.jpg" data-full="photos/varanasi1.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+    </div>
+    <div class="row row-offset">
+      <figure class="pf" data-i="3" tabindex="0" role="button" aria-label="Open photo 4"><img src="photos/m/varanasi14.jpg" data-full="photos/varanasi14.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+      <figure class="pf" data-i="4" tabindex="0" role="button" aria-label="Open photo 5"><img src="photos/m/varanasi5.jpg" data-full="photos/varanasi5.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+    </div>
+    <div class="row row-wide">
+      <figure class="pf" data-i="5" tabindex="0" role="button" aria-label="Open photo 6"><img src="photos/m/varanasi22.jpg" data-full="photos/varanasi22.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+    </div>
+    <div class="row row-pair" style="grid-template-columns: 0.666fr 1.501fr">
+      <figure class="pf" data-i="6" tabindex="0" role="button" aria-label="Open photo 7"><img src="photos/m/varanasi4.jpg" data-full="photos/varanasi4.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+      <figure class="pf" data-i="7" tabindex="0" role="button" aria-label="Open photo 8"><img src="photos/m/varanasi10.jpg" data-full="photos/varanasi10.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+    </div>
+    <div class="row row-solo">
+      <figure class="pf" data-i="8" tabindex="0" role="button" aria-label="Open photo 9"><img src="photos/m/varanasi21.jpg" data-full="photos/varanasi21.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+    </div>
+    <div class="row row-pair" style="grid-template-columns: 1.501fr 1.501fr">
+      <figure class="pf" data-i="9" tabindex="0" role="button" aria-label="Open photo 10"><img src="photos/m/varanasi11.jpg" data-full="photos/varanasi11.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+      <figure class="pf" data-i="10" tabindex="0" role="button" aria-label="Open photo 11"><img src="photos/m/varanasi12.jpg" data-full="photos/varanasi12.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+    </div>
+    <div class="row row-full">
+      <figure class="pf" data-i="11" tabindex="0" role="button" aria-label="Open photo 12"><img src="photos/m/varanasi13.jpg" data-full="photos/varanasi13.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+    </div>
+    <div class="row row-offset-rev">
+      <figure class="pf" data-i="12" tabindex="0" role="button" aria-label="Open photo 13"><img src="photos/m/varanasi9.jpg" data-full="photos/varanasi9.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+      <figure class="pf" data-i="13" tabindex="0" role="button" aria-label="Open photo 14"><img src="photos/m/varanasi18.jpg" data-full="photos/varanasi18.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+    </div>
+    <div class="row row-pair" style="grid-template-columns: 1.501fr 0.666fr">
+      <figure class="pf" data-i="14" tabindex="0" role="button" aria-label="Open photo 15"><img src="photos/m/varanasi23.jpg" data-full="photos/varanasi23.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+      <figure class="pf" data-i="15" tabindex="0" role="button" aria-label="Open photo 16"><img src="photos/m/varanasi24.jpg" data-full="photos/varanasi24.jpg" alt="" width="933" height="1400" loading="lazy"></figure>
+    </div>
+    <div class="row row-full">
+      <figure class="pf" data-i="16" tabindex="0" role="button" aria-label="Open photo 17"><img src="photos/m/varanasi25.jpg" data-full="photos/varanasi25.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+    </div>
+    <div class="row row-pair" style="grid-template-columns: 1.501fr 1.501fr">
+      <figure class="pf" data-i="17" tabindex="0" role="button" aria-label="Open photo 18"><img src="photos/m/varanasi20.jpg" data-full="photos/varanasi20.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+      <figure class="pf" data-i="18" tabindex="0" role="button" aria-label="Open photo 19"><img src="photos/m/varanasi27.jpg" data-full="photos/varanasi27.jpg" alt="" width="1400" height="933" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <a class="pl-next" href="taj.html">
+    <span class="pl-next-img"><img src="assets/dest/taj-2.jpg" alt="" loading="lazy"></span>
+    <span class="pl-next-text">
+      <span class="pl-next-label">Next destination</span>
+      <span class="pl-next-name" data-split="chars" data-reveal>Taj Mahal</span>
+    </span>
+  </a>
+</main>
+
+<div class="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <img class="lb-img" alt="">
+  <button class="lb-btn lb-close" type="button" aria-label="Close">
+    <svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></svg>
+  </button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+  </button>
+  <button class="lb-btn lb-next" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+  </button>
+  <span class="lb-count"></span>
 </div>
 
-
-<div class="gallery dense">
-
-  <!-- 01 -->
-  <div class="frame">
-    <img src="photos/varanasi26.jpg" alt="Varanasi 26" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>01</span>
-    </div>
-  </div>
-
-  <!-- 02 -->
-  <div class="frame">
-    <img src="photos/varanasi1.jpg" alt="Varanasi 1" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>02</span>
-    </div>
-  </div>
-
-  <!-- 03 -->
-  <div class="frame">
-    <img src="photos/varanasi3.jpg" alt="Varanasi 3" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>03</span>
-    </div>
-  </div>
-
-  <!-- 04 -->
-  <div class="frame">
-    <img src="photos/varanasi4.jpg" alt="Varanasi 4" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>04</span>
-    </div>
-  </div>
-
-  <!-- 05 -->
-  <div class="frame">
-    <img src="photos/varanasi5.jpg" alt="Varanasi 5" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>05</span>
-    </div>
-  </div>
-
-  <!-- 06 -->
-  <div class="frame">
-    <img src="photos/varanasi7.jpg" alt="Varanasi 7" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>06</span>
-    </div>
-  </div>
-
-
-  <!-- 07 -->
-  <div class="frame">
-    <img src="photos/varanasi9.jpg" alt="Varanasi 9" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>07</span>
-    </div>
-  </div>
-
-  <!-- 08 -->
-  <div class="frame">
-    <img src="photos/varanasi10.jpg" alt="Varanasi 10" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>08</span>
-    </div>
-  </div>
-
-  <!-- 09 -->
-  <div class="frame">
-    <img src="photos/varanasi11.jpg" alt="Varanasi 11" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>09</span>
-    </div>
-  </div>
-
-  <!-- 10 -->
-  <div class="frame">
-    <img src="photos/varanasi12.jpg" alt="Varanasi 12" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>10</span>
-    </div>
-  </div>
-
-  <!-- 11 -->
-  <div class="frame">
-    <img src="photos/varanasi13.jpg" alt="Varanasi 13" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>11</span>
-    </div>
-  </div>
-
-  <!-- 12 -->
-  <div class="frame">
-    <img src="photos/varanasi14.jpg" alt="Varanasi 14" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>12</span>
-    </div>
-  </div>
-
-  <!-- 13 -->
-  <div class="frame">
-    <img src="photos/varanasi18.jpg" alt="Varanasi 18" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>13</span>
-    </div>
-  </div>
-
-
-  <!-- 14 -->
-  <div class="frame">
-    <img src="photos/varanasi20.jpg" alt="Varanasi 20" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>14</span>
-    </div>
-  </div>
-
-  <!-- 15 -->
-  <div class="frame">
-    <img src="photos/varanasi21.jpg" alt="Varanasi 21" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>15</span>
-    </div>
-  </div>
-
-  <!-- 16 -->
-  <div class="frame">
-    <img src="photos/varanasi22.jpg" alt="Varanasi 22" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>16</span>
-    </div>
-  </div>
-
-  <!-- 17 -->
-  <div class="frame">
-    <img src="photos/varanasi23.jpg" alt="Varanasi 23" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>17</span>
-    </div>
-  </div>
-
-  <!-- 18 -->
-  <div class="frame">
-    <img src="photos/varanasi24.jpg" alt="Varanasi 24" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>18</span>
-    </div>
-  </div>
-
-  <!-- 19 -->
-  <div class="frame">
-    <img src="photos/varanasi25.jpg" alt="Varanasi 25" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>19</span>
-    </div>
-  </div>
-
-  <!-- 20 -->
-  <div class="frame">
-    <img src="photos/varanasi27.jpg" alt="Varanasi 27" loading="lazy">
-    <div class="cap">
-      <span>Varanasi</span>
-      <span>20</span>
-    </div>
-  </div>
-
-</div>
-
-
-<footer class="site-footer">
-  <span>Valentin Walendy</span>
-  <span>India, 2026</span>
-</footer>
-
+<nav class="dock" aria-label="Quick links">
+  <a class="dock-i" href="index.html" data-tip="Home" aria-label="Home">
+    <svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg>
+  </a>
+  <a class="dock-i" href="destinations.html" data-tip="Destinations" aria-label="Destinations">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.6 5.2 3.6 8.5s-1.2 6.1-3.6 8.5c-2.4-2.4-3.6-5.2-3.6-8.5s1.2-6.1 3.6-8.5z"/></svg>
+  </a>
+  <span class="dock-sep" aria-hidden="true"></span>
+  <a class="dock-i" href="https://github.com/vwalendy" target="_blank" rel="noopener" data-tip="GitHub" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" class="fill"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.7c-2.6.6-3.2-1.2-3.2-1.2-.4-1.1-1-1.4-1-1.4-.9-.6 0-.6 0-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.1-.2-4.3-1-4.3-4.6 0-1 .4-1.9 1-2.6-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.6 1a9 9 0 0 1 4.8 0c1.8-1.3 2.6-1 2.6-1 .5 1.3.2 2.3.1 2.5.6.7 1 1.6 1 2.6 0 3.7-2.2 4.4-4.3 4.6.3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5z"/></svg>
+  </a>
+  <a class="dock-i" href="https://www.linkedin.com/in/valentin-walendy-a16ba2328/" target="_blank" rel="noopener" data-tip="LinkedIn" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" class="fill"><path d="M5.2 8.8h3.1V19H5.2zM6.8 4a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.3 8.8h3v1.4c.4-.8 1.5-1.6 3-1.6 3.2 0 3.8 2.1 3.8 4.8V19H17v-5c0-1.2 0-2.7-1.7-2.7s-1.9 1.3-1.9 2.6V19h-3.1z"/></svg>
+  </a>
+  <a class="dock-i" href="mailto:valentin.walendy@epfl.ch" data-tip="valentin.walendy@epfl.ch" aria-label="Email valentin.walendy@epfl.ch">
+    <svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+  </a>
+</nav>
 
 <script src="cursor.js"></script>
-<script src="theme.js"></script>
-<script src="lightbox.js"></script>
-
+<script src="place.js"></script>
 </body>
 </html>
