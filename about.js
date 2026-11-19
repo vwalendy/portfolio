@@ -287,7 +287,7 @@
   if (wordText && "IntersectionObserver" in window) {
     var wo = new IntersectionObserver(function (entries) {
       if (entries[0].isIntersecting) { wordText.classList.add("is-in"); wo.disconnect(); }
-    }, { threshold: 0.15 });
+    }, { threshold: 0, rootMargin: "0px 0px -35% 0px" });
     wo.observe(pin);
   } else if (wordText) {
     wordText.classList.add("is-in");
@@ -307,37 +307,59 @@
     to.observe(trans);
   } else if (trans) { trans.classList.add("is-in"); }
 
+  function hexToRgb(str) {
+    var m = str.trim().match(/^#?([\da-f]{2})([\da-f]{2})([\da-f]{2})$/i);
+    if (m) return [parseInt(m[1], 16), parseInt(m[2], 16), parseInt(m[3], 16)];
+    var n = str.match(/\d+(\.\d+)?/g);
+    return n ? n.slice(0, 3).map(Number) : [255, 255, 255];
+  }
+  function mix(a, b, t) { return a.map(function (v, i) { return Math.round(v + (b[i] - v) * t); }); }
+  var GREEN = [25, 73, 66], PALE = [238, 243, 241];
+
   function transition() {
     if (!trans) return;
     var r = trans.getBoundingClientRect();
     if (r.bottom < 0 || r.top > vh) return;
     var p = clamp(-r.top / (r.height - vh), 0, 1);
-    var t = reduce ? (p > 0.5 ? 1 : 0) : easeInOut(clamp((p - 0.12) / 0.78, 0, 1));
+    var t = reduce ? (p > 0.5 ? 1 : 0) : clamp((p - 0.03) / 0.57, 0, 1);
+
+    var cs = getComputedStyle(body);
+    var BG = hexToRgb(cs.getPropertyValue("--bg"));
+    var INKC = hexToRgb(cs.getPropertyValue("--ink"));
 
     var s0 = Math.min(vw * 0.11, vh * 0.14, 120);
     var cxp = vw / 2, cyp = vh * 0.7;
-    // box grows from the icon to the full viewport
-    var top = (cyp - s0 / 2) * (1 - t);
-    var bottom = (vh - cyp - s0 / 2) * (1 - t);
-    var side = (vw - s0) / 2 * (1 - t);
-    var rad = s0 * 0.22 * (1 - t);
-    tPanel.style.clipPath = "inset(" + top.toFixed(1) + "px " + side.toFixed(1) + "px " + bottom.toFixed(1) + "px " + side.toFixed(1) + "px round " + rad.toFixed(1) + "px)";
-    var col = FROM.map(function (c, i) { return Math.round(c + (TO[i] - c) * Math.min(1, t * 1.6)); });
-    tPanel.style.background = "rgb(" + col.join(",") + ")";
+    var far = Math.hypot(Math.max(cxp, vw - cxp), Math.max(cyp, vh - cyp));
 
-    // the icon grows with the box and dissolves into it
-    var boxW = vw - side * 2, boxH = vh - top - bottom;
-    var k = Math.min(boxW, boxH) / s0;
+    // Green spreads out of the icon like ink in water: a soft-edged disc that
+    // grows past the corners, while the whole stage warms toward the same green.
+    var e = easeInOut(t);
+    var R = s0 * 0.5 + e * far * 1.45;
+    var core = R * 0.45;
+    var wash = mix(BG, GREEN, Math.pow(e, 1.6));
+    var g = "rgb(" + GREEN.join(",") + ")";
+    tPanel.style.clipPath = "none";
+    tPanel.style.background =
+      "radial-gradient(circle at " + cxp.toFixed(0) + "px " + cyp.toFixed(0) + "px, " +
+      g + " " + core.toFixed(0) + "px, rgba(" + GREEN.join(",") + ",0) " + R.toFixed(0) + "px), " +
+      "rgb(" + wash.join(",") + ")";
+    tPanel.style.opacity = String(clamp(t * 6, 0, 1));
+
+    // Icon swells gently and melts into the green.
     roam.style.setProperty("--is", s0 + "px");
     trans.style.setProperty("--is", s0 + "px");
-    tIcon.style.transform = "translate(-50%, " + (cyp - s0 / 2).toFixed(1) + "px) translateY(" + ((top - (cyp - s0 / 2)) + (boxH - s0) / 2).toFixed(1) + "px) scale(" + Math.min(k, 6).toFixed(3) + ")";
+    tIcon.style.transform = "translate(-50%, " + (cyp - s0 / 2).toFixed(1) + "px) scale(" + (1 + e * 0.9).toFixed(3) + ")";
     if (trans.classList.contains("is-in") && p > 0.01) {
       tIcon.classList.add("is-driven");
-      tIcon.style.opacity = String(clamp(1 - t * 4, 0, 1));
+      tIcon.style.opacity = String(clamp(1 - e * 2.2, 0, 1));
+      tIcon.style.filter = "blur(" + (e * 10).toFixed(1) + "px)";
     }
 
-    // heading drifts up slightly as the panel swallows it
-    tText.style.transform = "translateY(" + (-t * 6).toFixed(2) + "vh) scale(" + (1 - t * 0.06).toFixed(3) + ")";
+    // Heading sits above the green and turns pale as the green reaches it.
+    var ct = clamp((e - 0.2) / 0.45, 0, 1);
+    tText.style.color = "rgb(" + mix(INKC, PALE, ct).join(",") + ")";
+    tText.style.transform = "translateY(" + (-e * 8).toFixed(2) + "vh)";
+    tText.style.opacity = String(1 - clamp((e - 0.7) / 0.3, 0, 1));
   }
 
   /* ---------- 8b. Experience rows open and close ---------- */
