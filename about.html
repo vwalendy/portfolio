@@ -1,14 +1,25 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
+<script>(function(){try{if(localStorage.getItem("theme")==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}})();</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Valentin Walendy</title>
+<meta name="description" content="Valentin Walendy, computer science student at EPFL. Software projects and travel photography.">
+<link rel="preload" href="assets/fraunces-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" as="image" href="photos/portrait.jpg">
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="about.css">
 </head>
-<body>
+<body class="ab">
 
-<nav class="nav">
+<div class="ab-loader" aria-hidden="true">
+  <span class="ab-loader-name">Valentin Walendy</span>
+  <span class="ab-loader-count"><span class="odo" data-digits="3"></span><span class="ab-loader-pct">%</span></span>
+  <span class="ab-loader-bar"><span></span></span>
+</div>
+
+<nav class="nav ab-nav">
   <div class="nav-left">
     <a href="index.html" class="nav-logo">Valentin Walendy</a>
     <a href="about.html" class="about-link active">About</a>
@@ -18,42 +29,213 @@
   </div>
 </nav>
 
-<section class="about">
+<main>
 
-  <div class="about-photo frame">
-    <img src="photos/moi2.jpg" alt="Valentin Walendy">
-  </div>
+  <!-- ============ Intro ============ -->
+  <section class="ab-intro" aria-labelledby="ab-name">
+    <figure class="ab-frame">
+      <div class="ab-portrait">
+        <img src="photos/portrait.jpg" alt="Portrait of Valentin Walendy" width="880" height="1100">
+      </div>
+      <figcaption>Lausanne, 2026</figcaption>
+    </figure>
 
-  <div class="about-text">
-    <span class="eyebrow">About</span>
-    <h1>Valentin Walendy</h1>
+    <div class="ab-intro-text">
+      <h1 id="ab-name" class="ab-name">
+        <span class="ab-name-line" data-split="chars">Valentin</span>
+        <span class="ab-name-line" data-split="chars">Walendy</span>
+      </h1>
 
-    <p>I'm Valentin Walendy, a Computer Science Bachelor's student at EPFL (École Polytechnique Fédérale de Lausanne). I'm particularly interested in data analytics, computational modeling and algorithmic problem-solving, and I enjoy working on projects related to these fields, some of which you can find on my other profiles.</p>
+      <p class="ab-statement" data-split="words">Third-year computer science student at EPFL, working across software engineering, AI and computer systems. When I travel, I take photographs; most of this site is those.</p>
 
-    <p>Alongside my studies, photography has become one of my favorite ways to explore and document the world around me. Through this website, I want to share some of the places, moments and scenes that have caught my attention, and simply the photographs that mean something to me.</p>
-
-    <p>In the summer of 2026, I had the opportunity to spend two months in India for an internship at Infosys as a Data &amp; AI Intern. Living there also gave me the chance to travel across the region, discover new places and cultures, meet people and experience environments very different from what I was used to. Photography naturally became a way for me to capture and remember these experiences.</p>
-
-    <p>This portfolio brings together some of those photographs, as well as others taken along the way. It is simply a collection of places, people and moments that I wanted to capture and share.</p>
-
-    <div class="about-contact">
-      <span class="eyebrow">Get in touch</span>
-      <ul>
-        <li>Github — <a href="https://github.com/vwalendy" target="_blank" rel="noopener">vwalendy</a></li>
-        <li>Email — <a href="mailto:valentin.walendy@epfl.ch">valentin.walendy@epfl.ch</a></li>
-        <li>Email — <a href="mailto:vwalendy@gmail.com">vwalendy@gmail.com</a></li>
-        <li>LinkedIn — <a href="https://www.linkedin.com/in/valentin-walendy-a16ba2328/" target="_blank" rel="noopener">valentin walendy</a></li>
+      <ul class="ab-xp" aria-label="Experience">
+        <li class="xp">
+          <button class="xp-head" type="button" aria-expanded="false" aria-controls="xp-1">
+            <span class="xp-when">Since Sep 2026</span>
+            <span class="xp-what"><strong>Research intern</strong> <span class="xp-org">EPFL, Lausanne</span></span>
+            <span class="xp-plus" aria-hidden="true"></span>
+          </button>
+          <div class="xp-body" id="xp-1"><div class="xp-inner">
+            <p>Research in Prof. Ola Svensson's group at EPFL.</p>
+          </div></div>
+        </li>
+        <li class="xp">
+          <button class="xp-head" type="button" aria-expanded="false" aria-controls="xp-2">
+            <span class="xp-when">Summer 2026</span>
+            <span class="xp-what"><strong>Agentic AI research intern</strong> <span class="xp-org">Infosys, Bengaluru</span></span>
+            <span class="xp-plus" aria-hidden="true"></span>
+          </button>
+          <div class="xp-body" id="xp-2"><div class="xp-inner">
+            <p>Built a multi-agent AI platform on Infosys Topaz Fabric that automates first-line IT operations for a simulated bank: job monitoring, incident diagnosis, failure prediction and remediation.</p>
+            <ul>
+              <li>Six specialised agents built with Google ADK and Gemini.</li>
+              <li>A self-hosted MCP server exposing 9 shared tools, replacing the first HTTP-proxy design.</li>
+              <li>Orchestration with automatic context handoff, and human approval before any remediation runs.</li>
+              <li>Guardrails: evidence checks, confidence thresholds, PII redaction and prompt-injection detection on untrusted logs.</li>
+            </ul>
+            <p class="xp-tags">Agentic AI, multi-agent systems, Gemini, MCP</p>
+          </div></div>
+        </li>
+        <li class="xp">
+          <button class="xp-head" type="button" aria-expanded="false" aria-controls="xp-3">
+            <span class="xp-when">Since Feb 2026</span>
+            <span class="xp-what"><strong>Project manager</strong> <span class="xp-org">Junior Entreprise EPFL</span></span>
+            <span class="xp-plus" aria-hidden="true"></span>
+          </button>
+          <div class="xp-body" id="xp-3"><div class="xp-inner">
+            <p>Student-led consulting association delivering projects for clients from startups to multinationals, with partners including Bain &amp; Company, BCG, Mistral AI and EWOR.</p>
+            <ul>
+              <li>Named best Junior Enterprise in Switzerland in 2025.</li>
+              <li>Record turnover of CHF 425,000 in 2025, across 58 client projects.</li>
+              <li>Also sales associate since May 2026.</li>
+            </ul>
+            <p class="xp-tags">Project management, negotiation, business development</p>
+          </div></div>
+        </li>
+        <li class="xp">
+          <button class="xp-head" type="button" aria-expanded="false" aria-controls="xp-4">
+            <span class="xp-when">Early 2024</span>
+            <span class="xp-what"><strong>Research intern</strong> <span class="xp-org">Wolfram, Oxford</span></span>
+            <span class="xp-plus" aria-hidden="true"></span>
+          </button>
+          <div class="xp-body" id="xp-4"><div class="xp-inner">
+            <p>Two-month full-time research internship, programming in Mathematica.</p>
+            <p class="xp-tags">Mathematica, programming</p>
+          </div></div>
+        </li>
       </ul>
-    </div>
-  </div>
 
-</section>
+    </div>
+  </section>
+
+  <!-- ============ Work ============ -->
+  <section class="ab-trans" aria-labelledby="ab-work-title">
+    <div class="ab-trans-stage">
+      <div class="ab-trans-panel" aria-hidden="true"></div>
+      <img class="ab-trans-icon" src="assets/roam/icon.png" alt="" aria-hidden="true">
+      <div class="ab-trans-text">
+        <h2 id="ab-work-title" class="ab-h2 ab-trans-title" data-split="chars">Selected work</h2>
+        <p class="ab-trans-sub">Software I've built, starting with an app for travellers.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="roam" aria-labelledby="roam-title">
+    <div class="roam-pin">
+      <div class="roam-stage">
+
+        <div class="roam-word" aria-hidden="true"><span data-split="chars">Roam</span></div>
+
+        <header class="roam-head">
+          <img class="roam-icon" src="assets/roam/icon.png" alt="" width="56" height="56">
+          <div>
+            <h3 id="roam-title" class="roam-title">Roam</h3>
+            <p class="roam-tag">Snap a monument, discover its story.</p>
+          </div>
+        </header>
+
+        <div class="roam-phones">
+          <figure class="ph" data-ph="identify"><img src="assets/roam/identify.webp" alt="Roam identifying a monument from a photo"></figure>
+          <figure class="ph" data-ph="collection"><img src="assets/roam/collection.webp" alt="Roam collection of saved monuments"></figure>
+          <figure class="ph" data-ph="wishlist"><img src="assets/roam/wishlist.webp" alt="Roam wishlist of places friends scanned"></figure>
+          <figure class="ph" data-ph="snap"><img src="assets/roam/snap.webp" alt="Roam camera framing a monument"></figure>
+          <figure class="ph" data-ph="explore"><img src="assets/roam/explore.webp" alt="Roam map of your and your friends' monuments"></figure>
+          <figure class="ph" data-ph="learn"><img src="assets/roam/learn.webp" alt="Roam guide generated for the Panthéon"></figure>
+        </div>
+
+        <div class="roam-captions">
+          <p class="roam-cap" data-split="chars" data-for="snap">Point, shoot, know.</p>
+          <p class="roam-cap" data-split="chars" data-for="learn">A guide written for you.</p>
+          <p class="roam-cap" data-split="chars" data-for="collection">A travel journal in your pocket.</p>
+          <p class="roam-cap" data-split="chars" data-for="explore">The world, through your friends.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="roam-after">
+      <p class="roam-lede" data-split="words" data-reveal>An Android app that turns a photo of a monument into a short guide to its story, keeps it in a travel journal, and lets you share it with the friends you travel with.</p>
+
+
+      <dl class="roam-meta" data-reveal>
+        <div>
+          <dt>Context</dt>
+          <dd>Built with a team of 7 for Software Enterprise (SwEnt), EPFL, 2026</dd>
+        </div>
+        <div>
+          <dt>App</dt>
+          <dd>Kotlin, Jetpack Compose, CameraX, Google Maps</dd>
+        </div>
+        <div>
+          <dt>Cloud</dt>
+          <dd>Firebase Auth and Firestore, Gemini through Firebase AI Logic</dd>
+        </div>
+      </dl>
+
+      <a class="ab-cta" href="https://github.com/ROAM-SWENT/roam-android" target="_blank" rel="noopener" data-reveal>View the code on GitHub</a>
+    </div>
+  </section>
+
+  <section class="ab-more">
+    <p>Other projects, including ReChor, a Swiss public transport route planner, are on <a href="https://github.com/vwalendy" target="_blank" rel="noopener">my GitHub</a>.</p>
+  </section>
+
+  <!-- ============ Photography ============ -->
+  <section class="ab-photo" aria-labelledby="ab-photo-title">
+    <div class="ab-photo-head">
+      <h2 id="ab-photo-title" class="ab-h2" data-split="chars" data-reveal>Photography</h2>
+      <div class="ab-photo-body">
+        <p data-split="words" data-reveal>In summer 2026 I spent two months in India for my internship, and travelled whenever I could: Bangalore, Hampi, Varanasi, Agra, and on to Nepal. Photography became the way I kept those places.</p>
+        <a class="ab-cta" href="destinations.html" data-reveal>See the destinations</a>
+      </div>
+    </div>
+
+    <div class="ab-strip" aria-hidden="true">
+      <div class="ab-strip-track">
+        <img src="assets/strip/nepal6.jpg" alt="" loading="lazy" class="s-a">
+        <img src="assets/strip/varanasi7.jpg" alt="" loading="lazy" class="s-b">
+        <img src="assets/strip/bangalore2.jpg" alt="" loading="lazy" class="s-c">
+        <img src="assets/strip/taj13.jpg" alt="" loading="lazy" class="s-d">
+        <img src="assets/strip/varanasi3.jpg" alt="" loading="lazy" class="s-e">
+        <img src="assets/strip/hampi1.jpg" alt="" loading="lazy" class="s-f">
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <footer class="site-footer">
   <span>Valentin Walendy</span>
-  <span>India, 2026</span>
+  <span>Lausanne, 2026</span>
 </footer>
 
+<nav class="dock" aria-label="Quick links">
+  <a class="dock-i" href="index.html" data-tip="Home" aria-label="Home">
+    <svg viewBox="0 0 24 24"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-4.5v-6h-5v6H5a1 1 0 0 1-1-1z"/></svg>
+  </a>
+  <a class="dock-i" href="destinations.html" data-tip="Photography" aria-label="Photography">
+    <svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><circle cx="12" cy="12" r="3.2"/><path d="M8 5.5 9.2 3.5h5.6L16 5.5"/></svg>
+  </a>
+  <span class="dock-sep" aria-hidden="true"></span>
+  <a class="dock-i" href="https://github.com/vwalendy" target="_blank" rel="noopener" data-tip="GitHub" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" class="fill"><path d="M12 2.5a9.5 9.5 0 0 0-3 18.5c.5.1.7-.2.7-.5v-1.7c-2.6.6-3.2-1.2-3.2-1.2-.4-1.1-1-1.4-1-1.4-.9-.6 0-.6 0-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.1-.2-4.3-1-4.3-4.6 0-1 .4-1.9 1-2.6-.1-.2-.4-1.2.1-2.5 0 0 .8-.3 2.6 1a9 9 0 0 1 4.8 0c1.8-1.3 2.6-1 2.6-1 .5 1.3.2 2.3.1 2.5.6.7 1 1.6 1 2.6 0 3.7-2.2 4.4-4.3 4.6.3.3.6.9.6 1.8v2.7c0 .3.2.6.7.5A9.5 9.5 0 0 0 12 2.5z"/></svg>
+  </a>
+  <a class="dock-i" href="https://www.linkedin.com/in/valentin-walendy-a16ba2328/" target="_blank" rel="noopener" data-tip="LinkedIn" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" class="fill"><path d="M5.2 8.8h3.1V19H5.2zM6.8 4a1.8 1.8 0 1 1 0 3.6 1.8 1.8 0 0 1 0-3.6zM10.3 8.8h3v1.4c.4-.8 1.5-1.6 3-1.6 3.2 0 3.8 2.1 3.8 4.8V19H17v-5c0-1.2 0-2.7-1.7-2.7s-1.9 1.3-1.9 2.6V19h-3.1z"/></svg>
+  </a>
+  <a class="dock-i" href="mailto:valentin.walendy@epfl.ch" data-tip="valentin.walendy@epfl.ch" aria-label="Email valentin.walendy@epfl.ch">
+    <svg viewBox="0 0 24 24"><rect x="3.5" y="5.5" width="17" height="13" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+  </a>
+  <span class="dock-sep" aria-hidden="true"></span>
+  <button class="dock-i dock-theme" type="button" data-tip="Dark mode" aria-label="Switch to dark mode">
+    <svg viewBox="0 0 24 24" class="i-moon"><path d="M19.5 14.2A8 8 0 0 1 9.8 4.5a8 8 0 1 0 9.7 9.7z"/></svg>
+    <svg viewBox="0 0 24 24" class="i-sun"><circle cx="12" cy="12" r="3.8"/><path d="M12 2.8v2.4M12 18.8v2.4M2.8 12h2.4M18.8 12h2.4M5.5 5.5l1.7 1.7M16.8 16.8l1.7 1.7M18.5 5.5l-1.7 1.7M7.2 16.8l-1.7 1.7"/></svg>
+  </button>
+</nav>
+
 <script src="cursor.js"></script>
+<script src="dock.js"></script>
+<script src="intro-bg.js"></script>
+<script src="about.js"></script>
 </body>
 </html>
